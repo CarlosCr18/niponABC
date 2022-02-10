@@ -1,0 +1,94 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  width: min(90%, 40rem);
+  background: #22393f;
+  color: #fff;
+  margin-bottom: 5%;
+  border-radius: 5%;
+  background-color: #0a9abe;
+  overflow: hidden;
+}
+
+.loginInputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: auto;
+  gap: 0.3rem;
+  padding-block: 2rem;
+}
+
+.loginLabel {
+  font-size: 1.5rem;
+}
+
+.loginInput {
+  padding: 10px 10px;
+  margin-bottom: 1.5rem;
+  width: min(40ch, 90%);
+}
+
+.loginButton {
+  padding-block: 0.75rem;
+  padding-inline: 5%;
+  font-size: 1.325rem;
+  margin-bottom: 1.5rem;
+  background-color: #eee;
+  border: none;
+  width: min(15ch, 75%);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  color: #333;
+}
+
+.loginButton:hover,
+.loginButton:focus-visible {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.loginContainerFree {
+  display: flex;
+  left: 60%;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #22393f;
+}
+
+.loginInputContainer a,
+.loginInputContainer a:visited {
+  padding: 0.25rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.loginInputContainer a:hover,
+.loginInputContainer a:focus-visible,
+.loginInputContainer a:visited:hover,
+.loginInputContainer a:visited:focus-visible {
+  opacity: 0.85;
+  text-decoration: underline;
+}
