@@ -1,5 +1,4 @@
 import style from "./infoComponent.module.css";
-import Image from "next/image";
 
 export default function InfoComponent({ id, title, image, sound, examples }) {
   const playSound = () => {

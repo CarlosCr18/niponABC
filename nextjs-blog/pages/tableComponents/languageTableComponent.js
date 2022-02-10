@@ -1,8 +1,8 @@
-import style from "./languageCombTable.module.css";
+import style from "./languageTable.module.css";
 import React, { useState } from "react";
-import InfoComponent from "./infoComponent.js";
+import InfoComponent from "../infoComponent/infoComponent.js";
 
-export default function LanguageTableComb({ arrayProps }) {
+export default function LanguageTableComponent({ arrayProps }) {
   const [infoTitle, setInfoTitle] = useState("title");
   const [infoImg, setInfoImg] = useState("/images/info.png");
   const [infoExamples, setInfoExamples] = useState([
@@ -11,33 +11,34 @@ export default function LanguageTableComb({ arrayProps }) {
     "/images/example3.png",
   ]);
 
-  const infoComponentId = "infoComponentComb";
+  const infoComponentId = "infoComponent";
 
   const showInfo = (letter) => {
     if (letter.lat == " ") return;
     let title = letter.jap + " " + letter.lat;
     setInfoTitle(title);
     document
-      .getElementById("infoComponentComb")
-      .classList.add("infoComponent_scaleUp__lIcPE");
+      .getElementById("infoComponent")
+      .classList.add("infoComponent_scaleUp__ilu5D");
   };
+
   return (
-    <div className={style.charactersCombGrid}>
+    <div className={style.charactersGrid}>
       {arrayProps.map((letter, index) => {
         return (
           <button
-            key={"letterComb" + letter.jap + letter.lat}
+            key={"letter" + letter.jap + letter.lat}
             onClick={() => showInfo(letter)}
             className={
-              index % 6 >= 3
+              index % 10 >= 5
                 ? `${style.characterContainer}`
-                : `${style.characterContainer} ${style.backgroundBlue}`
+                : `${style.characterContainer} ${style.backgroundGrey}`
             }
           >
-            <div key={"letterjapComb" + letter.jap} className={style.letterJap}>
+            <div key={"letterjap" + letter.jap} className={style.letterJap}>
               {letter.jap}
             </div>
-            <div key={"letterLatComb" + letter.lat} className={style.letterLat}>
+            <div key={"letterLat" + letter.lat} className={style.letterLat}>
               {letter.lat}
             </div>
           </button>

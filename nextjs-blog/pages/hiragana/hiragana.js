@@ -1,7 +1,7 @@
 import Link from "next/link";
-import style from "./characterSet.module.css";
-import Table from "./languageTableComponent.js";
-import TableComb from "./languageCombTableComponent.js";
+import style from "../characterSet.module.css";
+import Table from "../tableComponents/languageTableComponent.js";
+import TableComb from "../tableComponents/languageCombTableComponent.js";
 
 const hiragana = [
   { jap: "あ", lat: "a" },

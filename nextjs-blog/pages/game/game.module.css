@@ -3,10 +3,10 @@
   font-style: normal;
   font-weight: 400;
   src: local(""),
-    url("../assets/fonts/rampart-one-v5-latin_japanese-regular.woff2")
+    url("../../assets/fonts/rampart-one-v5-latin_japanese-regular.woff2")
       format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../assets/fonts/rampart-one-v5-latin_japanese-regular.woff")
+      url("../../assets/fonts/rampart-one-v5-latin_japanese-regular.woff")
       format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
@@ -14,8 +14,8 @@
   font-style: normal;
   font-weight: 400;
   src: local(""),
-    url("../assets/fonts/Oshidashi-M-Gothic.otf") format("opentype"),
-    url("../assets/fonts/Oshidashi-M-Gothic-TT.ttf") format("truetype");
+    url("../../assets/fonts/Oshidashi-M-Gothic.otf") format("opentype"),
+    url("../../assets/fonts/Oshidashi-M-Gothic-TT.ttf") format("truetype");
 }
 .title {
   word-break: break-all;

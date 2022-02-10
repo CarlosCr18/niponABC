@@ -1,7 +1,7 @@
 import Link from "next/link";
 import style from "./game.module.css";
 import React, { useState, useEffect } from "react";
-import Table from "./languageTableComponent.js";
+import Table from "../tableComponents/languageTableComponent.js";
 import GameDescription from "./gameDescription.js";
 import GameCheckBox from "./gameCheckBoxOption.js";
 import GameButtons from "./gameButtons.js";

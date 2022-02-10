@@ -1,7 +1,7 @@
 import Link from "next/link";
 import style from "./characterSet.module.css";
-import Table from "./languageTableComponent.js";
-import TableComb from "./languageCombTableComponent.js";
+import Table from "../languageTableComponent.js";
+import TableComb from "../languageCombTableComponent.js";
 
 const katakana = [
   { jap: "ア", lat: "a" },
