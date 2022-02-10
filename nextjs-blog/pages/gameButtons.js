@@ -13,6 +13,7 @@ export default function GameButtons({
   for (let i = 0; i < 3; i++) {
     buttonsArray.push(
       <button
+        key={"button" + i}
         className={style.gameOption}
         onClick={(target) => {
           if (isRunning) {

@@ -6,6 +6,9 @@
   padding: 0.25rem;
   overflow: auto;
 }
+.scaleUpT {
+  transform: translateY(-50%) translateX(-50%) scale(1);
+}
 
 .characterContainer {
   display: flex;

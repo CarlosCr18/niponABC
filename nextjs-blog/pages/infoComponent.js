@@ -1,4 +1,5 @@
 import style from "./infoComponent.module.css";
+import Image from "next/image";
 
 export default function InfoComponent({ id, title, image, sound, examples }) {
   const playSound = () => {
@@ -8,15 +9,23 @@ export default function InfoComponent({ id, title, image, sound, examples }) {
   };
 
   return (
-    <div className={style.infoContainer} id={id}>
+    <div className={`${style.infoContainer}`} id={id}>
       <button
         className={style.btnClose}
-        onClick={({ target }) => (target.parentElement.style.display = "none")}
+        onClick={({ target }) => {
+          target.parentElement.classList.remove(`${style.scaleUp}`);
+        }}
       >
         X
       </button>
       <h3>{title}</h3>
-      <img src={image} alt="picture of selected item" />
+      <img
+        src={image}
+        alt="picture of selected item"
+        loading="lazy"
+        width="300px"
+        height="300px"
+      />
       <button
         className={style.btnSound}
         onClick={() => {
@@ -26,17 +35,23 @@ export default function InfoComponent({ id, title, image, sound, examples }) {
         Sound Icon
       </button>
       <audio id="audio" src={sound} />
-      <div className={style.examples}>
+      <div className={style.examplesContainer}>
         <p>Examples</p>
-        <ul>
+        <div className={style.examples}>
           {examples.map((e, index) => {
             return (
-              <li key={e}>
-                <p>{e}</p>
-              </li>
+              <img
+                key={e}
+                src={e}
+                alt={"picture of example" + index}
+                loading="lazy"
+                width="300px"
+                height="300px"
+                className={style.example}
+              />
             );
           })}
-        </ul>
+        </div>
       </div>
     </div>
   );
