@@ -1,6 +1,10 @@
 import Link from "next/link";
 import style from "./game.module.css";
 import React, { useState, useEffect } from "react";
+import Table from "./languageTableComponent.js";
+import GameDescription from "./gameDescription.js";
+import GameCheckBox from "./gameCheckBoxOption.js";
+import GameButtons from "./gameButtons.js";
 
 const hiragana = [
   { jap: "あ", lat: "a" },
@@ -242,6 +246,7 @@ export default function Game() {
   const [isGameOver, setIsGameOver] = useState(true);
   const [missedCharacters, setMissedCharacters] = useState([""]);
 
+  //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
     if (isRunning) {
       // console.log(timer + "timer");
@@ -340,17 +345,18 @@ export default function Game() {
     isRunning,
   ]);
 
+  //useEffect that triggers when isRunning value changes resets values when starting the game and stops the animation and setState isGameOver when its value is false
   useEffect(() => {
     if (isRunning) {
       setMissedCharacters([]);
+      setCorrect(0);
+      setWrong(0);
       let gameChar = document.getElementById("gameCharacter");
       gameChar.style.left = "0px";
       setTimer(0);
       document.querySelector(`.${style.missedContainer}`).style.display =
         "block";
     } else {
-      setCorrect(0);
-      setWrong(0);
       setIsGameOver(true);
       document.querySelectorAll(`.${style.gameOption}`).forEach((element) => {
         element.disabled = false;
@@ -359,7 +365,7 @@ export default function Game() {
     // console.log(isRunning, "isRunning");
   }, [isRunning]);
 
-  //function that gets the new values for the game
+  //function that gets the new values for the game gets 3 new character sets new orders for the options and enables the buttons again
   const nextCharactersSet = () => {
     setCurrentCharacters(() => randomObjects(3, localCharacterList));
     setCurrentOrder(currentOrder.sort(() => Math.random() - 0.5));
@@ -424,66 +430,17 @@ export default function Game() {
 
   return (
     <div className="container">
-      <h1>The game</h1>
-      <p> A brief description of the game</p>
-      <h2>Game Options</h2>
-      <p>brief description of game Options</p>
-      <ul className={style.languagesUnorginzeslist}>
-        <li className={`${style.gameOptionsList} ${style.greenSelected}`}>
-          <label htmlFor="hiragana">Hiragana</label>
-          <input
-            id="hiragana"
-            type="checkbox"
-            className="checkboxLanguage"
-            onClick={(target) => {
-              setCheckedHiragana(target.target.checked);
-              changeBackgroundChecked(target.target);
-            }}
-            defaultChecked={true}
-          ></input>
-        </li>
-        <li className={style.gameOptionsList}>
-          <label htmlFor="hiraganaComb">Hiragana combinations</label>
-          <input
-            id="hiraganaComb"
-            type="checkbox"
-            className="checkboxLanguage"
-            onClick={(target) => {
-              setCheckedHiraganaComb(target.target.checked);
-              changeBackgroundChecked(target.target);
-            }}
-          ></input>
-        </li>
-        <li className={style.gameOptionsList}>
-          <label htmlFor="katakana">Katakana</label>
-          <input
-            id="katakana"
-            type="checkbox"
-            className="checkboxLanguage"
-            onClick={(target) => {
-              setCheckedKatakana(target.target.checked);
-              changeBackgroundChecked(target.target);
-            }}
-          ></input>
-        </li>
-        <li className={style.gameOptionsList}>
-          <label htmlFor="katakanaComb">Katakana combinations</label>
-          <input
-            id="katakanaComb"
-            type="checkbox"
-            className="checkboxLanguage"
-            onClick={(target) => {
-              setCheckedKatakanaComb(target.target.checked);
-              changeBackgroundChecked(target.target);
-            }}
-          ></input>
-        </li>
-        <li className={style.languageAlert}>
-          <p id="selectOneLanguage" className={style.selectOneLanguage}>
-            {listStatus ? "ㅤ" : "Please Select at least one option"}
-          </p>
-        </li>
-      </ul>
+      <GameDescription />
+      <GameCheckBox
+        setCheckedHiragana={setCheckedHiragana}
+        setCheckedHiraganaComb={setCheckedHiraganaComb}
+        setCheckedKatakana={setCheckedKatakana}
+        setCheckedKatakanaComb={setCheckedKatakanaComb}
+        changeBackgroundChecked={changeBackgroundChecked}
+        listStatus={listStatus}
+        changeBackgroundChecked={changeBackgroundChecked}
+        style={style}
+      />
       <div className={style.game}>
         <div className={style.correct}>correct: {correct}</div>
         <div className={style.remaining}>
@@ -492,53 +449,20 @@ export default function Game() {
         <div className={style.wrong}>Wrong: {wrong}</div>
         <div className={style.gameCharacterContainer}>
           <p id="gameCharacter" className={style.gameCharacter}>
-            {isRunning ? currentCharacters[0].jap : "ㅤ"}
+            {isRunning ? currentCharacters[0].lat : "ㅤ"}
           </p>
         </div>
-        <div className={style.gameOptionsContainer}>
-          <button
-            className={style.gameOption}
-            onClick={(target) => {
-              if (isRunning) {
-                let validate =
-                  target.target.innerHTML == currentCharacters[0].lat;
-                choiceValidator(target.target);
-                setCorrect(validate ? correct + 1 : correct);
-                setWrong(validate ? wrong + 1 : wrong);
-              }
-            }}
-          >
-            {isRunning ? currentCharacters[currentOrder[0]].lat : "ㅤ"}
-          </button>
-          <button
-            className={style.gameOption}
-            onClick={(target) => {
-              if (isRunning) {
-                let validate =
-                  target.target.innerHTML == currentCharacters[0].lat;
-                choiceValidator(target.target);
-                setCorrect(validate ? correct + 1 : correct);
-                setWrong(validate ? wrong + 1 : wrong);
-              }
-            }}
-          >
-            {isRunning ? currentCharacters[currentOrder[1]].lat : "ㅤ"}
-          </button>
-          <button
-            className={style.gameOption}
-            onClick={(target) => {
-              if (isRunning) {
-                let validate =
-                  target.target.innerHTML == currentCharacters[0].lat;
-                choiceValidator(target.target);
-                setCorrect(validate ? correct + 1 : correct);
-                setWrong(validate ? wrong + 1 : wrong);
-              }
-            }}
-          >
-            {isRunning ? currentCharacters[currentOrder[2]].lat : "ㅤ"}
-          </button>
-        </div>
+        <GameButtons
+          style={style}
+          isRunning={isRunning}
+          currentCharacters={currentCharacters}
+          choiceValidator={choiceValidator}
+          setCorrect={setCorrect}
+          correct={correct}
+          setWrong={setWrong}
+          wrong={wrong}
+          currentOrder={currentOrder}
+        />
       </div>
       <div className={style.gameButtonsContainer}>
         <button
@@ -565,14 +489,7 @@ export default function Game() {
         {isGameOver ? (
           <>
             <h2>You missed</h2>
-            {missedCharacters.map((e) => {
-              return (
-                <>
-                  <div>{e.jap}</div>
-                  <div>{e.lat}</div>
-                </>
-              );
-            })}
+            <Table arrayProps={missedCharacters} />
           </>
         ) : (
           <h2></h2>

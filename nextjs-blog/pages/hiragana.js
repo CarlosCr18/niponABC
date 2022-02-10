@@ -1,6 +1,7 @@
 import Link from "next/link";
 import style from "./characterSet.module.css";
 import Table from "./languageTableComponent.js";
+import TableComb from "./languageCombTableComponent.js";
 
 const hiragana = [
   { jap: "あ", lat: "a" },
@@ -144,22 +145,7 @@ export default function Hiragana() {
       <p>Tap on any character to get more information.</p>
       <Table arrayProps={hiragana} />
       <h2>Hiragana combinations</h2>
-      <div className={style.charactersCombGrid}>
-        {hiraganaCombinations.map((letter, index) => {
-          return (
-            <div
-              className={
-                index % 6 >= 3
-                  ? `${style.characterContainer}`
-                  : `${style.characterContainer} ${style.backgroundBlue}`
-              }
-            >
-              <div className={style.letterJap}>{letter.jap}</div>
-              <div className={style.letterLat}>{letter.lat}</div>
-            </div>
-          );
-        })}
-      </div>
+      <TableComb arrayProps={hiraganaCombinations} />
       <h2>
         <Link href="/game">
           <a>Back to game</a>

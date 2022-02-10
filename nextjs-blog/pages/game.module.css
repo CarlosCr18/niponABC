@@ -150,4 +150,7 @@
 
 .missedContainer {
   display: none;
+  padding-block: 2rem;
+  width: min(95%, 40rem);
+  text-align: center;
 }

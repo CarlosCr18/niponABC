@@ -1,5 +1,7 @@
 import Link from "next/link";
 import style from "./characterSet.module.css";
+import Table from "./languageTableComponent.js";
+import TableComb from "./languageCombTableComponent.js";
 
 const katakana = [
   { jap: "ア", lat: "a" },
@@ -127,61 +129,9 @@ export default function Katakana() {
       </p>
       <h2>Katakana character set</h2>
       <p>Tap on any character to get more information.</p>
-      <div className={style.charactersGrid}>
-        {katakana.map((letter, index) => {
-          return (
-            <div
-              key={index + "katakana"}
-              className={
-                index % 10 >= 5
-                  ? `${style.characterContainer}`
-                  : `${style.characterContainer} ${style.backgroundBlue}`
-              }
-            >
-              <div
-                key={index + "katakanaletterjap"}
-                className={style.letterJap}
-              >
-                {letter.jap}
-              </div>
-              <div
-                key={index + "katakanaletterlat"}
-                className={style.letterLat}
-              >
-                {letter.lat}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <Table arrayProps={katakana} />
       <h2>katakana combinations</h2>
-      <div className={style.charactersCombGrid}>
-        {katakanaCombinations.map((letter, index) => {
-          return (
-            <div
-              key={index + "katakanacomb"}
-              className={
-                index % 6 >= 3
-                  ? `${style.characterContainer}`
-                  : `${style.characterContainer} ${style.backgroundBlue}`
-              }
-            >
-              <div
-                key={index + "katakanacombletterjap"}
-                className={style.letterJap}
-              >
-                {letter.jap}
-              </div>
-              <div
-                key={index + "katakanacombletterlat"}
-                className={style.letterLat}
-              >
-                {letter.lat}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <TableComb arrayProps={katakanaCombinations} />
       <h2>
         <Link href="/game">
           <a>Back to game</a>
