@@ -1,10 +1,10 @@
-import Link from "next/link";
 import style from "./game.module.css";
 import React, { useState, useEffect } from "react";
 import Table from "../tableComponents/languageTableComponent.js";
 import GameDescription from "./gameDescription.js";
 import GameCheckBox from "./gameCheckBoxOption.js";
 import GameButtons from "./gameButtons.js";
+import NavBar from "../navigationBar/navigationBar";
 
 const hiragana = [
   { jap: "あ", lat: "a" },
@@ -430,6 +430,7 @@ export default function Game() {
 
   return (
     <div className="container">
+      <NavBar />
       <GameDescription />
       <GameCheckBox
         setCheckedHiragana={setCheckedHiragana}
@@ -495,22 +496,6 @@ export default function Game() {
           <h2></h2>
         )}
       </div>
-      <h2>
-        <Link href="/hiragana">
-          <a>Remember Hiragana</a>
-        </Link>
-      </h2>
-      <h2>
-        <Link href="/katakana">
-          <a>Remember Katakana</a>
-        </Link>
-      </h2>
-
-      <h2>
-        <Link href="/login">
-          <a>Back to Login</a>
-        </Link>
-      </h2>
       <style jsx global>{`
         :root {
           --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
@@ -530,6 +515,7 @@ export default function Game() {
         body {
           padding: 0;
           margin: 0;
+          font-size: var(--step--1);
           font-family: "Oshidashi";
         }
         a {
@@ -560,6 +546,10 @@ export default function Game() {
           height: 100%;
           width: 100%;
           font-size: 1.325rem;
+          padding: 2rem;
+        }
+        h1 {
+          padding-top: 1rem;
         }
       `}</style>
     </div>

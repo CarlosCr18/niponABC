@@ -1,0 +1,43 @@
+.nav {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(138, 11, 11);
+  font-size: var(--step--1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.nav * {
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
+}
+
+.nav img {
+  display: block;
+  max-height: 3rem;
+  object-fit: cover;
+}
+
+.linksContainer {
+  display: flex;
+  margin-left: 5%;
+  flex-direction: row;
+  gap: clamp(0.55rem, 0.44rem + 2vw, 5.56rem);
+  align-items: center;
+  justify-content: center;
+}
+
+.account {
+  display: block;
+  margin-right: 0.5rem;
+  margin-left: 0;
+  font-size: var(--step--2);
+}

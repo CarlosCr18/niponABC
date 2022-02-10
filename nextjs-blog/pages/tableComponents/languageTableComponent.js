@@ -27,7 +27,7 @@ export default function LanguageTableComponent({ arrayProps }) {
       {arrayProps.map((letter, index) => {
         return (
           <button
-            key={"letter" + letter.jap + letter.lat}
+            key={"letter" + letter.jap + letter.lat + index}
             onClick={() => showInfo(letter)}
             className={
               index % 10 >= 5
@@ -35,10 +35,16 @@ export default function LanguageTableComponent({ arrayProps }) {
                 : `${style.characterContainer} ${style.backgroundGrey}`
             }
           >
-            <div key={"letterjap" + letter.jap} className={style.letterJap}>
+            <div
+              key={"letterjap" + letter.jap + index}
+              className={style.letterJap}
+            >
               {letter.jap}
             </div>
-            <div key={"letterLat" + letter.lat} className={style.letterLat}>
+            <div
+              key={"letterLat" + letter.lat + index}
+              className={style.letterLat}
+            >
               {letter.lat}
             </div>
           </button>

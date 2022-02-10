@@ -1,9 +1,14 @@
 import Link from "next/link";
 import style from "./login.module.css";
+import Head from "next/head";
 
 export default function LoginFunction() {
   return (
     <div className={style.container}>
+      <Head>
+        <title>Login NiponABC</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className={style.loginContainer}>
         <div className={style.loginInputContainer}>
           <label className={style.loginLabel}>Username</label>
@@ -19,16 +24,11 @@ export default function LoginFunction() {
           </Link>
         </div>
         <div className={style.loginContainerFree}>
-          <Link href="/game">
+          <Link href="/game/game">
             <a className={style.loginButton}>Use without account</a>
           </Link>
         </div>
       </div>
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
     </div>
   );
 }

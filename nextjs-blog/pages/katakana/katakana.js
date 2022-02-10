@@ -1,7 +1,7 @@
-import Link from "next/link";
-import style from "./characterSet.module.css";
-import Table from "../languageTableComponent.js";
-import TableComb from "../languageCombTableComponent.js";
+import style from "../characterSet.module.css";
+import Table from "../tableComponents/languageTableComponent.js";
+import TableComb from "../tableComponents/languageCombTableComponent.js";
+import NavBar from "../navigationBar/navigationBar";
 
 const katakana = [
   { jap: "ア", lat: "a" },
@@ -119,6 +119,7 @@ const katakanaCombinations = [
 export default function Katakana() {
   return (
     <div className="container">
+      <NavBar />
       <h1 className={style.title}>
         <p>Katakana</p>
         <p>カタカナ</p>
@@ -132,16 +133,6 @@ export default function Katakana() {
       <Table arrayProps={katakana} />
       <h2>katakana combinations</h2>
       <TableComb arrayProps={katakanaCombinations} />
-      <h2>
-        <Link href="/game">
-          <a>Back to game</a>
-        </Link>
-      </h2>
-      <h2>
-        <Link href="/login">
-          <a>Back to Login</a>
-        </Link>
-      </h2>
       <style jsx global>{`
         :root {
           --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);

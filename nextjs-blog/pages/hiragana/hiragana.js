@@ -1,7 +1,7 @@
-import Link from "next/link";
 import style from "../characterSet.module.css";
 import Table from "../tableComponents/languageTableComponent.js";
 import TableComb from "../tableComponents/languageCombTableComponent.js";
+import NavBar from "../navigationBar/navigationBar";
 
 const hiragana = [
   { jap: "あ", lat: "a" },
@@ -119,6 +119,7 @@ const hiraganaCombinations = [
 export default function Hiragana() {
   return (
     <div className="container">
+      <NavBar />
       <h1 className={style.title}>
         <p>Hiragana</p>
         <p>ひらがな</p>
@@ -146,16 +147,6 @@ export default function Hiragana() {
       <Table arrayProps={hiragana} />
       <h2>Hiragana combinations</h2>
       <TableComb arrayProps={hiraganaCombinations} />
-      <h2>
-        <Link href="/game">
-          <a>Back to game</a>
-        </Link>
-      </h2>
-      <h2>
-        <Link href="/login">
-          <a>Back to Login</a>
-        </Link>
-      </h2>
       <style jsx global>{`
         :root {
           --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
