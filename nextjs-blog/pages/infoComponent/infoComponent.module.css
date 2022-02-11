@@ -85,3 +85,27 @@
   padding-block: 1rem;
   font-size: var(--step-1);
 }
+
+.imgContainer {
+  display: block;
+  position: relative;
+  width: 160px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: gold;
+}
+
+.imageLanguages {
+  --translateX-var: 0;
+  --translateY-var: 0;
+  min-width: 1760px;
+  display: block;
+  top: -17px;
+  right: -19px;
+  position: absolute;
+  width: 1760px;
+  object-fit: none;
+  transform: translateY(var(--translateY-var)) translateX(var(--translateX-var));
+}

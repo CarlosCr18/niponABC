@@ -272,7 +272,11 @@ export default function Game() {
         gameChar.style.left = "0px";
         // console.log(timer, "timer Cleared");
         setWrong(wrong + 1);
-        setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
+        if (localCharacterList.length > 0) {
+          setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
+        } else {
+          document.getElementById("stopGame").click();
+        }
         setLocalCharacterList(() =>
           localCharacterList.filter((element) => {
             return element != currentCharacters[0];
@@ -417,15 +421,15 @@ export default function Game() {
       let gameChar = document.getElementById("gameCharacter");
       gameChar.classList.remove(`${style.gameTransition}`);
       gameChar.style.left = gameChar.clientWidth * -1 + "px";
-    }, 750);
+    }, 600);
   };
 
   //Depending on the changes of localCharacterList calls the next character or the end of the game
   useEffect(() => {
     if (localCharacterList.length > 0) {
       nextCharactersSet();
-      let gameChar = document.getElementById("gameCharacter");
-      gameChar.style.left = "0px";
+      // let gameChar = document.getElementById("gameCharacter");
+      // gameChar.style.left = "0px";
       setTimer(0);
     } else {
       resetState();
@@ -434,7 +438,7 @@ export default function Game() {
 
   //function to resetState
   const resetState = () => {
-    setCurrentCharacters([{ jap: "game over" }, "", ""]);
+    setCurrentCharacters([{ jap: "game over", lat: "" }, "", ""]);
     setCurrentOrder((currentOrder = [0, 1, 2]));
     console.log(missedCharacters);
   };

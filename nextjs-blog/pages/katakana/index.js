@@ -179,9 +179,18 @@ export default function Katakana() {
           gap: 1rem;
         }
 
+        .container p {
+          width: min(40ch, 90%);
+          word-break: break-word;
+          text-align: center;
+        }
+        .container h1 p {
+          width: 100%;
+        }
+
         h2 {
           padding-top: 1rem;
-          margin: 0;
+          margin: 0 auto;
         }
       `}</style>
     </div>

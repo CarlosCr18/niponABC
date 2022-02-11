@@ -18,13 +18,15 @@ export default function InfoComponent({ id, title, image, sound, examples }) {
         X
       </button>
       <h3>{title}</h3>
-      <img
-        src={image}
-        alt="picture of selected item"
-        loading="lazy"
-        width="300px"
-        height="300px"
-      />
+      <div className={style.imgContainer}>
+        <img
+          id="imgId"
+          loading="lazy"
+          className={style.imageLanguages}
+          src={image}
+          alt="picture of selected item"
+        />
+      </div>
       <button
         className={style.btnSound}
         onClick={() => {
@@ -42,10 +44,8 @@ export default function InfoComponent({ id, title, image, sound, examples }) {
               <img
                 key={e}
                 src={e}
-                alt={"picture of example" + index}
                 loading="lazy"
-                width="300px"
-                height="300px"
+                alt={"picture of example" + index}
                 className={style.example}
               />
             );

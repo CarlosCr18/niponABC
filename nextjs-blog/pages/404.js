@@ -9,7 +9,7 @@ export default function Custom404() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>404 - Page Not Found</h1>
-      <Link href="//">
+      <Link href="/">
         <a>Return to Login</a>
       </Link>
 

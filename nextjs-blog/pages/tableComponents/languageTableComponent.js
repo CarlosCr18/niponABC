@@ -4,7 +4,7 @@ import InfoComponent from "../infoComponent/infoComponent.js";
 
 export default function LanguageTableComponent({ arrayProps }) {
   const [infoTitle, setInfoTitle] = useState("title");
-  const [infoImg, setInfoImg] = useState("/images/info.png");
+  const [infoImg, setInfoImg] = useState("/images/hiraganapicture.webp");
   const [infoExamples, setInfoExamples] = useState([
     "/images/example1.png",
     "/images/example2.png",

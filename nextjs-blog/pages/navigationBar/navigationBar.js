@@ -12,24 +12,24 @@ export default function NavBar() {
         width="2rem"
       />
       <div className={styles.linksContainer}>
-        <div className={styles.link}>
+        <div className={styles.link} prefetch={false}>
           <Link href="/game">
             <a>Game</a>
           </Link>
         </div>
         <div className={styles.link}>
-          <Link href="/hiragana">
+          <Link href="/hiragana" prefetch={false}>
             <a>Hiragana</a>
           </Link>
         </div>
         <div className={styles.link}>
-          <Link href="/katakana">
+          <Link href="/katakana" prefetch={false}>
             <a>Katakana</a>
           </Link>
         </div>
       </div>
       <div className={styles.account}>
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <a>Login/Account</a>
         </Link>
       </div>
