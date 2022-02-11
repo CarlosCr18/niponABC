@@ -24,6 +24,7 @@
   border-radius: 5%;
   background-color: #0a9abe;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .loginInputContainer {
@@ -35,6 +36,7 @@
   height: auto;
   gap: 0.3rem;
   padding-block: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .loginLabel {
@@ -48,33 +50,39 @@
 }
 
 .loginButton {
-  padding-block: 0.75rem;
-  padding-inline: 5%;
-  font-size: 1.325rem;
-  margin-bottom: 1.5rem;
-  background-color: #eee;
+  width: 50%;
+  padding: 0.75rem 0.5rem;
+  background-color: white;
+}
+
+.loginContainerFree {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f4a58;
+}
+
+.loginButtonRed {
+  background-color: #d3d3d3;
+  display: flex;
+  font-size: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
   border: none;
-  width: min(15ch, 75%);
+  width: 80%;
+  aspect-ratio: 2/1;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  border-radius: 10px;
-  color: #333;
+  border-radius: 20%;
+  color: black;
 }
 
 .loginButton:hover,
 .loginButton:focus-visible {
   opacity: 0.9;
   cursor: pointer;
-}
-
-.loginContainerFree {
-  display: flex;
-  left: 60%;
-  width: 40%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: #22393f;
 }
 
 .loginInputContainer a,

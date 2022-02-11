@@ -13,23 +13,23 @@ export default function NavBar() {
       />
       <div className={styles.linksContainer}>
         <div className={styles.link}>
-          <Link href="/game/game">
+          <Link href="/game">
             <a>Game</a>
           </Link>
         </div>
         <div className={styles.link}>
-          <Link href="/hiragana/hiragana">
+          <Link href="/hiragana">
             <a>Hiragana</a>
           </Link>
         </div>
         <div className={styles.link}>
-          <Link href="/katakana/katakana">
+          <Link href="/katakana">
             <a>Katakana</a>
           </Link>
         </div>
       </div>
       <div className={styles.account}>
-        <Link href="/login/login">
+        <Link href="/">
           <a>Login/Account</a>
         </Link>
       </div>

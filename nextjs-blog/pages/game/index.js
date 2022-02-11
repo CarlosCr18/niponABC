@@ -5,6 +5,7 @@ import GameDescription from "./gameDescription.js";
 import GameCheckBox from "./gameCheckBoxOption.js";
 import GameButtons from "./gameButtons.js";
 import NavBar from "../navigationBar/navigationBar";
+import Head from "next/head";
 
 const hiragana = [
   { jap: "あ", lat: "a" },
@@ -248,27 +249,41 @@ export default function Game() {
 
   //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
+    let gameChar = document.getElementById("gameCharacter");
     if (isRunning) {
       // console.log(timer + "timer");
-      let gameChar = document.getElementById("gameCharacter");
       const id = setTimeout(() => {
-        setTimer(timer + 1);
+        gameChar.classList.add(`${style.gameTransition}`);
         gameChar.style.left =
-          gameChar.offsetLeft + gameChar.parentElement.clientWidth / 200 + "px";
-      }, 20);
+          gameChar.parentElement.offsetLeft +
+          gameChar.parentElement.clientWidth +
+          gameChar.clientWidth * 2 +
+          "px";
+
+        setTimer(timer + 1);
+      }, 100);
       if (
-        gameChar.offsetLeft - gameChar.clientWidth * 2 >=
-        gameChar.parentElement.offsetLeft + gameChar.parentElement.clientWidth
+        gameChar.offsetLeft >=
+        gameChar.parentElement.offsetLeft +
+          gameChar.parentElement.clientWidth +
+          gameChar.clientWidth * 2
       ) {
-        clearTimeout(id);
-        // console.log(gameChar);
+        gameChar.classList.remove(`${style.gameTransition}`);
+        gameChar.style.left = "0px";
+        // console.log(timer, "timer Cleared");
         setWrong(wrong + 1);
+        setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
         setLocalCharacterList(() =>
           localCharacterList.filter((element) => {
             return element != currentCharacters[0];
           })
         );
+        clearTimeout(id);
       }
+    } else {
+      gameChar.classList.remove(`${style.gameTransition}`);
+      gameChar.style.left = "0px";
+      clearTimeout(id);
     }
 
     return () => {
@@ -352,6 +367,7 @@ export default function Game() {
       setCorrect(0);
       setWrong(0);
       let gameChar = document.getElementById("gameCharacter");
+      gameChar.classList.remove(`${style.gameTransition}`);
       gameChar.style.left = "0px";
       setTimer(0);
       document.querySelector(`.${style.missedContainer}`).style.display =
@@ -398,6 +414,9 @@ export default function Game() {
           return element != currentCharacters[0];
         })
       );
+      let gameChar = document.getElementById("gameCharacter");
+      gameChar.classList.remove(`${style.gameTransition}`);
+      gameChar.style.left = gameChar.clientWidth * -1 + "px";
     }, 750);
   };
 
@@ -430,6 +449,10 @@ export default function Game() {
 
   return (
     <div className="container">
+      <Head>
+        <title>NiponABC Game</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <NavBar />
       <GameDescription />
       <GameCheckBox
@@ -444,13 +467,11 @@ export default function Game() {
       />
       <div className={style.game}>
         <div className={style.correct}>correct: {correct}</div>
-        <div className={style.remaining}>
-          Remaining: {localCharacterList.length}
-        </div>
+        <div className={style.remaining}>Left: {localCharacterList.length}</div>
         <div className={style.wrong}>Wrong: {wrong}</div>
         <div className={style.gameCharacterContainer}>
           <p id="gameCharacter" className={style.gameCharacter}>
-            {isRunning ? currentCharacters[0].lat : "ㅤ"}
+            {isRunning ? currentCharacters[0].jap : "ㅤ"}
           </p>
         </div>
         <GameButtons

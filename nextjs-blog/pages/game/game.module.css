@@ -23,7 +23,7 @@
 
 .game {
   position: relative;
-  width: min(50rem, 95%);
+  width: min(50rem, 100%);
   display: flex;
   flex-direction: column;
   grid-template-columns: 1fr;
@@ -31,29 +31,34 @@
   align-items: space-between;
   justify-content: flex-start;
   text-align: center;
-  border: 1px solid #000;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .correct {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 1rem;
+  padding: clamp(0.21rem, 0.19rem + 0.1vw, 0.96rem);
+  color: rgb(22, 185, 22);
+  font-size: var(--font-size--2);
 }
 .wrong {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1rem;
+  padding: clamp(0.21rem, 0.19rem + 0.1vw, 0.96rem);
+  font-size: var(--font-size--2);
 }
 .remaining {
   position: absolute;
   top: 0;
-  left: 50%;
-  padding: 1rem;
-  transform: translateX(-50%);
+  left: 52%;
+  padding: clamp(0.21rem, 0.19rem + 0.1vw, 0.96rem);
+  transform: translateX(-52%);
+  font-size: var(--font-size--2);
 }
 
 .gameCharacterContainer {
@@ -71,21 +76,45 @@
   left: 0;
   transform: translateX(-100%) translateY(-50%);
   font-size: var(--step-8);
-  color: red;
+  color: rgb(46, 46, 46);
   font-family: "Rampart One";
   word-break: keep-all;
+}
+
+.gameTransition {
+  transition: all 4s cubic-bezier(0, 0.5, 1, 0.49);
+}
+
+.noGameTransition {
+  transition: none;
 }
 
 .gameOptionsContainer {
   display: flex;
   flex-direction: row;
-  background-color: red;
   align-items: center;
   justify-content: center;
   gap: min(4rem, 5%);
   height: 100%;
   margin: 0;
   padding: 1rem;
+  background: rgb(255, 0, 0);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(191, 46, 2, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(191, 46, 2, 1) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(191, 46, 2, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#bf2e02",GradientType=1);
 }
 
 .languagesUnorginzeslist {
@@ -150,7 +179,9 @@
 
 .missedContainer {
   display: none;
+  padding: 0;
+  margin: 0;
   padding-block: 2rem;
-  width: min(95%, 40rem);
+  width: min(99%, 40rem);
   text-align: center;
 }

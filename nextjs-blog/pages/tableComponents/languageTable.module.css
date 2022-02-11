@@ -36,7 +36,7 @@
 
 .letterJap {
   font-size: var(--step-0);
-  padding-inline: 0.25rem;
+  padding-inline: 0.15rem;
 }
 .letterLat {
   font-size: var(--step--1);

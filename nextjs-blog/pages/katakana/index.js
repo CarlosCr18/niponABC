@@ -2,6 +2,7 @@ import style from "../characterSet.module.css";
 import Table from "../tableComponents/languageTableComponent.js";
 import TableComb from "../tableComponents/languageCombTableComponent.js";
 import NavBar from "../navigationBar/navigationBar";
+import Head from "next/head";
 
 const katakana = [
   { jap: "ア", lat: "a" },
@@ -119,6 +120,10 @@ const katakanaCombinations = [
 export default function Katakana() {
   return (
     <div className="container">
+      <Head>
+        <title>NiponABC Katakana</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <NavBar />
       <h1 className={style.title}>
         <p>Katakana</p>
