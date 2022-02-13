@@ -24,30 +24,30 @@
 }
 
 .infoContainer h3 {
-  font-size: var(--step-3);
-}
-
-.infoContainer img {
-  max-width: 75%;
-  height: auto;
-  object-fit: cover;
-  padding: 1rem;
+  font-size: var(--step-2);
+  padding: 0;
+  margin: 1rem;
 }
 
 .btnClose {
   outline: 1px solid black;
   border: none;
   position: absolute;
+  background-color: white;
   border-radius: 40%;
   top: 0;
   padding: 1rem;
   right: 0;
   transform: translatex(50%) translateY(-50%);
+  transition: all 0.3s;
 }
 
 .btnClose:hover,
 .btnClose:focus-visible {
-  transform: translatex(50%) translateY(-50%) scale(1.05);
+  transform: translatex(50%) translateY(-50%) scale(1.1);
+  background: rgb(197, 15, 15);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
 }
 
 .btnSound {
@@ -58,54 +58,60 @@
 
 .examplesContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0 1rem 1rem 1rem;
 }
 
 .examples {
   display: flex;
-  flex-direction: row;
   width: 100%;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0;
-  padding: 0;
-  grid-row: 2;
+  flex-direction: column;
+  padding-bottom: 1rem;
 }
+.example2 {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+}
+
 .example {
-  width: 100%;
+  width: 100% !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 !important;
+  font-size: var(--step--1) !important;
+}
+
+.example span {
+  color: red;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .examplesContainer p {
   margin: 0;
   padding-block: 1rem;
   font-size: var(--step-1);
+  word-break: break-word !important;
 }
 
 .imgContainer {
-  display: block;
-  position: relative;
-  width: 160px;
-  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background: gold;
+  overflow: show;
 }
 
 .imageLanguages {
-  --translateX-var: 0;
-  --translateY-var: 0;
-  min-width: 1760px;
+  min-width: 160px;
+  height: 100%;
+  width: auto;
+  min-height: 200px;
   display: block;
-  top: -17px;
-  right: -19px;
-  position: absolute;
-  width: 1760px;
-  object-fit: none;
-  transform: translateY(var(--translateY-var)) translateX(var(--translateX-var));
+  object-fit: cover;
 }

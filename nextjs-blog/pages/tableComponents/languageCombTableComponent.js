@@ -10,13 +10,20 @@ export default function LanguageTableComb({ arrayProps }) {
     "/images/example2.png",
     "/images/example3.png",
   ]);
-
+  const [japLetter, setJapLetter] = useState("");
+  const [latLetter, setLatLetter] = useState("");
   const infoComponentId = "infoComponentComb";
 
   const showInfo = (letter) => {
     if (letter.lat == " ") return;
-    let title = letter.jap + " " + letter.lat;
+
+    let title = letter.lat;
     setInfoTitle(title);
+    setInfoImg(letter.infoImg);
+    setInfoExamples(letter.examples);
+    setJapLetter(letter.jap);
+    setLatLetter(letter.lat);
+
     document
       .getElementById("infoComponentComb")
       .classList.add("infoComponent_scaleUp__ilu5D");
@@ -49,6 +56,8 @@ export default function LanguageTableComb({ arrayProps }) {
         image={infoImg}
         sound="sound"
         examples={infoExamples}
+        japLetter={japLetter}
+        latLetter={latLetter}
       />
     </div>
   );

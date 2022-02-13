@@ -4,19 +4,25 @@ import InfoComponent from "../infoComponent/infoComponent.js";
 
 export default function LanguageTableComponent({ arrayProps }) {
   const [infoTitle, setInfoTitle] = useState("title");
-  const [infoImg, setInfoImg] = useState("/images/hiraganapicture.webp");
+  const [infoImg, setInfoImg] = useState(["/images/info.png"]);
   const [infoExamples, setInfoExamples] = useState([
     "/images/example1.png",
     "/images/example2.png",
     "/images/example3.png",
   ]);
+  const [japLetter, setJapLetter] = useState([""]);
+  const [latLetter, setLatLetter] = useState("");
 
   const infoComponentId = "infoComponent";
 
   const showInfo = (letter) => {
-    if (letter.lat == " ") return;
+    if (letter.lat == "") return;
     let title = letter.jap + " " + letter.lat;
     setInfoTitle(title);
+    setInfoImg(letter.infoImg);
+    setInfoExamples(letter.examples);
+    setJapLetter(letter.jap);
+    setLatLetter(letter.lat);
     document
       .getElementById("infoComponent")
       .classList.add("infoComponent_scaleUp__ilu5D");
@@ -56,6 +62,8 @@ export default function LanguageTableComponent({ arrayProps }) {
         image={infoImg}
         sound="sound"
         examples={infoExamples}
+        japLetter={japLetter}
+        latLetter={latLetter}
       />
     </div>
   );
