@@ -1,3 +1,5 @@
+import React from "react";
+import Link from "next/link";
 import style from "./infoComponent.module.css";
 
 export default function InfoComponent({
@@ -7,7 +9,7 @@ export default function InfoComponent({
   sound,
   examples,
   japLetter,
-  latLetter,
+  characterSet,
 }) {
   const playSound = () => {
     const sound = document.getElementById("audio");
@@ -53,18 +55,22 @@ export default function InfoComponent({
       <h3>Examples</h3>
       <div className={style.examplesContainer}>
         {examples.map((e, index) => {
-          let divClass =
+          let colorChar =
             index !== 1
               ? `${style.examples}`
-              : `${style.examples} ${style.example2}`;
-          let japExample = ("" + e.jap).split("");
+              : `${style.examples} ${style.exampleColorRed}`;
+          let regex = new RegExp(japLetter, "g");
+          let returnString = ("" + e.jap).replace(
+            regex,
+            `<span>${japLetter}</span>`
+          );
+          console.log(returnString);
           return (
-            <div className={divClass}>
-              <p className={style.example}>
-                {japExample.map((letter) => {
-                  return letter == japLetter ? <span>{letter}</span> : letter;
-                })}
-              </p>
+            <div className={colorChar}>
+              <p
+                className={style.example}
+                dangerouslySetInnerHTML={{ __html: returnString }}
+              ></p>
               <p className={style.example}>{e.lat}</p>
               <p className={style.example}>{e.meaning}</p>
             </div>

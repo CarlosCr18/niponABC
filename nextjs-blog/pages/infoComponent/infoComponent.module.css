@@ -70,7 +70,7 @@
   flex-direction: column;
   padding-bottom: 1rem;
 }
-.example2 {
+.exampleColorRed {
   border-left: 1px solid red;
   border-right: 1px solid red;
 }
@@ -78,6 +78,7 @@
 .example {
   width: 100% !important;
   display: flex;
+  flex-direction: row !important;
   align-items: flex-start;
   justify-content: center;
   margin: 0 !important;
