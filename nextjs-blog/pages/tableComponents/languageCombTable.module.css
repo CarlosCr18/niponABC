@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Oshidashi";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(""),
+    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff2")
+      format("woff2"),
+    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff")
+      format("woff");
+}
+
 .charactersCombGrid {
   height: 100%;
   width: min(95%, 40rem);
@@ -7,6 +19,7 @@
   justify-content: space-between;
   padding: 0.25rem;
   overflow: auto;
+  font-family: "Oshidashi";
 }
 .characterContainer {
   display: flex;
@@ -22,6 +35,11 @@
   color: black;
   cursor: pointer;
 }
+.characterContainer:hover,
+.characterContainer:focus-visible {
+  transform: none;
+  opacity: 0.7;
+}
 
 .backgroundBlue {
   background-color: rgb(233, 233, 233);
@@ -30,7 +48,9 @@
 .letterJap {
   font-size: var(--step-0);
   padding-inline: 0.25rem;
+  font-family: "Oshidashi";
 }
 .letterLat {
   font-size: var(--step--1);
+  font-family: "Oshidashi";
 }

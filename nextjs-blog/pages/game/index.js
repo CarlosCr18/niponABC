@@ -6,31 +6,27 @@ import GameCheckBox from "./gameCheckBoxOption.js";
 import GameButtons from "./gameButtons.js";
 import NavBar from "../navigationBar/navigationBar";
 import Head from "next/head";
+import Footer from "../footer/footer.js";
 import { hiragana } from "../languageDatabase.js";
 import { hiraganaCombinations } from "../languageDatabase.js";
 import { katakana } from "../languageDatabase.js";
 import { katakanaCombinations } from "../languageDatabase.js";
 
 export default function Game() {
-  let gameHiragana = hiragana.filter((e) => e.jap != "");
-  let gameKatakana = katakana.filter((e) => e.jap != "");
   const fullCharacterList = [
-    gameHiragana,
+    hiragana,
     hiraganaCombinations,
-    gameKatakana,
+    katakana,
     katakanaCombinations,
   ];
 
-  console.log(fullCharacterList, "fullcharacterlist");
+  // console.log(fullCharacterList, "fullcharacterlist");
 
   const [correct, setCorrect] = useState(0);
-  const [checkedHiragana, setCheckedHiragana] = useState(true);
-  const [checkedHiraganaComb, setCheckedHiraganaComb] = useState(false);
-  const [checkedKatakana, setCheckedKatakana] = useState(false);
-  const [checkedKatakanaComb, setCheckedKatakanaComb] = useState(false);
+
   const [wrong, setWrong] = useState(0);
   const [localCharacterList, setLocalCharacterList] = useState([""]);
-  const [listStatus, setListStatus] = useState(false);
+  const [gameList, setGameList] = useState([""]);
   const [isRunning, setIsRunning] = useState(false);
   const [currentCharacters, setCurrentCharacters] = useState([]);
   const [currentOrder, setCurrentOrder] = useState([0, 1, 2]);
@@ -86,6 +82,11 @@ export default function Game() {
     };
   }, [timer, isRunning]);
 
+  //updates the game characters list
+  useEffect(() => {
+    setLocalCharacterList(gameList);
+  }, [gameList, isRunning]);
+
   //function that takes an amount and list parameters then returns an array containing that amount of random items from the list without repetitions
   const randomObjects = (amount, list) => {
     let randomItems = [];
@@ -102,58 +103,6 @@ export default function Game() {
     }
     return randomItems;
   };
-
-  //Creates list for the game depending on the selected options.
-  useEffect(() => {
-    if (
-      !checkedHiragana &&
-      !checkedHiraganaComb &&
-      !checkedKatakana &&
-      !checkedKatakanaComb
-    ) {
-      // console.log("none checked", isRunning, "isRunning");
-      setListStatus(() => false);
-      setIsRunning(() => false);
-    } else {
-      setListStatus(true);
-      setLocalCharacterList((localCharacterList.length = 0));
-      if (checkedHiragana) {
-        setLocalCharacterList(localCharacterList.push(...fullCharacterList[0]));
-      }
-      if (checkedHiraganaComb) {
-        setLocalCharacterList(
-          setLocalCharacterList(
-            localCharacterList.push(...fullCharacterList[1])
-          )
-        );
-      }
-      if (checkedKatakana) {
-        setLocalCharacterList(
-          setLocalCharacterList(
-            localCharacterList.push(...fullCharacterList[2])
-          )
-        );
-      }
-      if (checkedKatakanaComb) {
-        setLocalCharacterList(
-          setLocalCharacterList(
-            localCharacterList.push(...fullCharacterList[3])
-          )
-        );
-      }
-      setLocalCharacterList(
-        localCharacterList.filter((element) => {
-          return element !== "";
-        })
-      );
-    }
-  }, [
-    checkedHiragana,
-    checkedHiraganaComb,
-    checkedKatakana,
-    checkedKatakanaComb,
-    isRunning,
-  ]);
 
   //useEffect that triggers when isRunning value changes resets values when starting the game and stops the animation and setState isGameOver when its value is false
   useEffect(() => {
@@ -200,7 +149,7 @@ export default function Game() {
       setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
     }
 
-    console.log(missedCharacters);
+    // console.log(missedCharacters);
     setTimeout(() => {
       target.classList.remove(style.redSelected);
       target.classList.remove(style.greenSelected);
@@ -231,17 +180,8 @@ export default function Game() {
   const resetState = () => {
     setCurrentCharacters([{ jap: "game over", lat: "" }, "", ""]);
     setCurrentOrder((currentOrder = [0, 1, 2]));
-    console.log(missedCharacters);
+    // console.log(missedCharacters);
   };
-  //Changes the li background when a checkbox is checked
-  const changeBackgroundChecked = (target) => {
-    if (target.checked) {
-      target.parentElement.classList.add(style.greenSelected);
-    } else {
-      target.parentElement.classList.remove(style.greenSelected);
-    }
-  };
-
   return (
     <div className="container">
       <Head>
@@ -249,20 +189,17 @@ export default function Game() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <GameDescription />
+      <GameDescription style={style} />
       <GameCheckBox
-        setCheckedHiragana={setCheckedHiragana}
-        setCheckedHiraganaComb={setCheckedHiraganaComb}
-        setCheckedKatakana={setCheckedKatakana}
-        setCheckedKatakanaComb={setCheckedKatakanaComb}
-        changeBackgroundChecked={changeBackgroundChecked}
-        listStatus={listStatus}
-        changeBackgroundChecked={changeBackgroundChecked}
-        style={style}
+        setIsRunning={setIsRunning}
+        setLocalCharacterList={setGameList}
+        fullCharacterList={fullCharacterList}
       />
       <div className={style.game}>
         <div className={style.correct}>correct: {correct}</div>
-        <div className={style.remaining}>Left: {localCharacterList.length}</div>
+        <div className={style.remaining}>
+          Chars: {localCharacterList.length}
+        </div>
         <div className={style.wrong}>Wrong: {wrong}</div>
         <div className={style.gameCharacterContainer}>
           <p id="gameCharacter" className={style.gameCharacter}>
@@ -342,6 +279,7 @@ export default function Game() {
 
         button {
           transition: all 0.35s ease;
+          font-family: "Oshidashi";
         }
 
         @media (hover: hover) {
@@ -353,6 +291,7 @@ export default function Game() {
           box-sizing: border-box;
         }
         .container {
+          position: relative;
           top: 0;
           left: 0;
           display: flex;
@@ -363,11 +302,14 @@ export default function Game() {
           width: 100%;
           font-size: 1.325rem;
           padding: 2rem;
+          padding-bottom: 10rem;
+          margin-bottom: ;
         }
         h1 {
           padding-top: 1rem;
         }
       `}</style>
+      <Footer />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Table from "../tableComponents/languageTableComponent.js";
 import TableComb from "../tableComponents/languageCombTableComponent.js";
 import NavBar from "../navigationBar/navigationBar";
 import Head from "next/head";
+import Footer from "../footer/footer.js";
 import { hiragana } from "../languageDatabase.js";
 import { hiraganaCombinations } from "../languageDatabase.js";
 
@@ -72,6 +73,7 @@ export default function Hiragana() {
           box-sizing: border-box;
         }
         .container {
+          position: relative;
           top: 0;
           left: 0;
           display: flex;
@@ -82,6 +84,7 @@ export default function Hiragana() {
           width: 100%;
           font-size: 1.325rem;
           padding: 1rem;
+          padding-bottom: 10rem;
           gap: 1rem;
         }
         .container p {
@@ -97,6 +100,7 @@ export default function Hiragana() {
           margin: 0;
         }
       `}</style>
+      <Footer />
     </div>
   );
 }

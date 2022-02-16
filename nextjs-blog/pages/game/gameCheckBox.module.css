@@ -1,0 +1,177 @@
+.greenSelected {
+  background-color: rgba(126, 233, 126, 0.932) !important;
+}
+.redSelected {
+  background-color: rgba(233, 126, 126, 0.932) !important;
+}
+
+/*-- Information where buttons for open list are */
+
+.languagesUnorginzeslist {
+  display: flex;
+  flex-direction: column;
+  width: min(95%, 45rem);
+  align-items: space-between;
+  justify-content: center;
+  margin-bottom: 2rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.gameOptionsList {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.gameOptionsTitle {
+  width: 100%;
+  padding: clamp(0.31rem, 0.29rem + 0.1vw, 1.16rem);
+}
+
+.selectButtons {
+  width: 15ch;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.25rem;
+  padding: 0.35rem 0.35rem 0.35rem 0;
+}
+
+.selectAllButton {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+@media not (hover: none) {
+  .selectAllButton:hover,
+  .selectAllButton:focus-visible {
+    transform: none !important;
+    background: rgb(197, 15, 15);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: white;
+  }
+}
+
+.languageAlert {
+  list-style: none;
+}
+
+.selectOneLanguage {
+  color: red;
+  font-size: var(--step--1);
+}
+
+/*- grid and buttos */
+
+.charsList {
+  position: fixed;
+  background-color: white;
+  width: min(45rem, 90%);
+  top: 50vh;
+  left: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 0;
+  transform: scale(0) translateY(-52%) translateX(-50%);
+  opacity: 0;
+  transition: all 0.35s ease;
+  outline: 2px solid red;
+  border-radius: 10px;
+  padding: 1rem 0rem;
+  z-index: 1 !important;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.selectCharsbuttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+.inputsGrid {
+  position: relative;
+  width: min(95%, 45rem);
+  height: 40rem;
+  overflow: scroll;
+  scrollbar-width: thin;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(5, 1fr);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.gridItem {
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+  padding: clamp(0.41rem, 0.49rem + 0.1vw, 0.96rem);
+  padding-block: min(2vw, 0.5rem);
+  outline: 1px solid black;
+  background: white;
+  color: black;
+}
+
+.charsToAdd {
+  width: 0;
+  position: absolute;
+  height: 0;
+  opacity: 0;
+}
+.inflate {
+  opacity: 1;
+  transform-origin: top left;
+  height: 40rem;
+  transform: scale(1) translateY(-52%) translateX(-50%);
+  margin: 1rem 0 3rem 0;
+}
+
+.closeButton {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+  background: rgb(197, 15, 15) !important;
+  color: white !important;
+  border-radius: 5px;
+  padding: 1rem !important;
+  transition: all 0.5s;
+}
+
+@media not (hover: none) {
+  .closeButton:hover,
+  .closeButton:focus-visible {
+    background: rgb(197, 15, 15);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: white;
+  }
+}
+
+.selectCharsbuttons button,
+.addCharsButton {
+  border-radius: 5px;
+  background: rgb(197, 15, 15) !important;
+  color: white !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border: none;
+  padding: 1rem 2rem;
+}

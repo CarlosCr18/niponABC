@@ -64,9 +64,9 @@ export default function InfoComponent({
             regex,
             `<span>${japLetter}</span>`
           );
-          console.log(returnString);
+          // console.log(returnString);
           return (
-            <div className={colorChar}>
+            <div key={"colorChar" + colorChar + index} className={colorChar}>
               <p
                 className={style.example}
                 dangerouslySetInnerHTML={{ __html: returnString }}

@@ -1,0 +1,28 @@
+.container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(37, 37, 37);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: var(--step--2);
+}
+
+.copyright p {
+  width: 100% !important;
+}
+
+.developerLink {
+  display: block;
+  color: white;
+  transition: all 0.35s ease;
+}
+
+.developerLink:hover {
+  transform: translateY(-0.35rem);
+}

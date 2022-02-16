@@ -2,6 +2,7 @@
   font-family: "Rampart One";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local(""),
     url("../../assets/fonts/rampart-one-v5-latin_japanese-regular.woff2")
       format("woff2"),
@@ -13,12 +14,51 @@
   font-family: "Oshidashi";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local(""),
-    url("../../assets/fonts/Oshidashi-M-Gothic.otf") format("opentype"),
-    url("../../assets/fonts/Oshidashi-M-Gothic-TT.ttf") format("truetype");
+    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff2")
+      format("woff2"),
+    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff")
+      format("woff");
 }
 .title {
   word-break: break-all;
+}
+.gameDescription {
+  width: min(60ch, 90%) !important;
+  text-align: center;
+}
+
+.gameOptionsFullDescription {
+  width: min(60ch, 90%) !important;
+  text-align: start;
+  opacity: 0;
+  height: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+.deflate {
+  opacity: 0;
+  height: 0;
+  transform: scale(0);
+}
+
+.inflate {
+  opacity: 1;
+  height: 100%;
+  transform: scale(1);
+}
+
+.learnMoreButton {
+  margin: -0.5rem auto 3rem auto !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+  background: rgb(197, 15, 15) !important;
+  color: white !important;
+  border-radius: 5px;
+  padding: 1rem !important;
+  transition: all 0.5s;
 }
 
 .game {
@@ -118,21 +158,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#bf2e02",GradientType=1);
 }
 
-.languagesUnorginzeslist {
-  margin-bottom: 2rem;
-  list-style: none;
-  padding-left: 0;
-}
-.gameOptionsList {
-  position: relative;
-  list-style: none;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
 .gameOption {
   background-color: white;
   padding: 1rem;
@@ -141,16 +166,6 @@
   border-radius: 15px;
   font-size: var(--step-1);
   border: none;
-}
-
-.languageAlert {
-  list-style: none;
-}
-
-.selectOneLanguage {
-  position: relative;
-  color: red;
-  font-size: var(--step--1);
 }
 
 .greenSelected {

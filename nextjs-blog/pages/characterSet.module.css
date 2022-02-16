@@ -2,9 +2,12 @@
   font-family: "Oshidashi";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local(""),
-    url("../assets/fonts/Oshidashi-M-Gothic.otf") format("opentype"),
-    url("../assets/fonts/Oshidashi-M-Gothic-TT.ttf") format("truetype");
+    url("../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff2")
+      format("woff2"),
+    url("../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff")
+      format("woff");
 }
 
 .vowelsText {

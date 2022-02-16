@@ -3,6 +3,7 @@ import Table from "../tableComponents/languageTableComponent.js";
 import TableComb from "../tableComponents/languageCombTableComponent.js";
 import NavBar from "../navigationBar/navigationBar";
 import Head from "next/head";
+import Footer from "../footer/footer.js";
 import { katakana } from "../languageDatabase.js";
 import { katakanaCombinations } from "../languageDatabase.js";
 
@@ -55,6 +56,7 @@ export default function Katakana() {
           box-sizing: border-box;
         }
         .container {
+          position: relative;
           top: 0;
           left: 0;
           display: flex;
@@ -65,6 +67,7 @@ export default function Katakana() {
           width: 100%;
           font-size: 1.325rem;
           padding: 1rem;
+          padding-bottom: 10rem;
           gap: 1rem;
         }
 
@@ -78,10 +81,11 @@ export default function Katakana() {
         }
 
         h2 {
-          padding-top: 1rem;
+          padding-top: 2rem;
           margin: 0 auto;
         }
       `}</style>
+      <Footer />
     </div>
   );
 }
