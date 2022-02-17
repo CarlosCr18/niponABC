@@ -116,3 +116,7 @@
   display: block;
   object-fit: cover;
 }
+
+.btnSound {
+  display: none;
+}
