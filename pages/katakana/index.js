@@ -4,8 +4,8 @@ import TableComb from "../tableComponents/languageCombTableComponent.js";
 import NavBar from "../navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "../footer/footer.js";
-import { katakana } from "../languageDatabase.js";
-import { katakanaCombinations } from "../languageDatabase.js";
+import { katakana } from "../../languageDatabase.js";
+import { katakanaCombinations } from "../../languageDatabase.js";
 
 export default function Katakana() {
   return (

@@ -30,7 +30,7 @@ export default function LanguageTableComponent({ arrayProps }) {
 
   return (
     <div className={style.charactersGrid}>
-      {arrayProps.map((letter, index) => {
+      {arrayProps?.map((letter, index) => {
         return (
           <button
             key={"letter" + letter.jap + letter.lat + index}

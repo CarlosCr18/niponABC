@@ -7,10 +7,10 @@ import GameButtons from "./game/gameButtons.js";
 import NavBar from "./navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "./footer/footer.js";
-import { hiragana } from "./languageDatabase.js";
-import { hiraganaCombinations } from "./languageDatabase.js";
-import { katakana } from "./languageDatabase.js";
-import { katakanaCombinations } from "./languageDatabase.js";
+import { hiragana } from "../languageDatabase.js";
+import { hiraganaCombinations } from "../languageDatabase.js";
+import { katakana } from "../languageDatabase.js";
+import { katakanaCombinations } from "../languageDatabase.js";
 
 export default function Game() {
   const fullCharacterList = [

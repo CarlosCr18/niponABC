@@ -4,8 +4,8 @@ import TableComb from "../tableComponents/languageCombTableComponent.js";
 import NavBar from "../navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "../footer/footer.js";
-import { hiragana } from "../languageDatabase.js";
-import { hiraganaCombinations } from "../languageDatabase.js";
+import { hiragana } from "../../languageDatabase.js";
+import { hiraganaCombinations } from "../../languageDatabase.js";
 
 export default function Hiragana() {
   return (

@@ -30,7 +30,7 @@ export default function LanguageTableComb({ arrayProps }) {
   };
   return (
     <div className={style.charactersCombGrid}>
-      {arrayProps.map((letter, index) => {
+      {arrayProps?.map((letter, index) => {
         return (
           <button
             key={"letterComb" + letter.jap + letter.lat}

@@ -11,10 +11,10 @@ export default function GameButtons({
 }) {
   let buttonsArray = [];
   for (let i = 0; i < 3; i++) {
-    buttonsArray.push(
+    buttonsArray?.push(
       <button
         key={"button" + i}
-        className={style.gameOption}
+        className={style?.gameOption}
         onClick={(target) => {
           if (isRunning) {
             let validate = target.target.innerHTML == currentCharacters[0].lat;
@@ -30,8 +30,8 @@ export default function GameButtons({
   }
 
   return (
-    <div className={style.gameOptionsContainer}>
-      {buttonsArray.map((e) => e)}
+    <div className={style?.gameOptionsContainer}>
+      {buttonsArray?.map((e) => e)}
     </div>
   );
 }

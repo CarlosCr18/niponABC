@@ -2,7 +2,7 @@ export default function GameDescription({ style }) {
   return (
     <>
       <h1>The game</h1>
-      <p className={style.gameDescription}>
+      <p className={style?.gameDescription}>
         {" "}
         This site was created so anyone who wants to learn or practice the
         japanse alphabet can do it in an interactive manner.
@@ -10,7 +10,7 @@ export default function GameDescription({ style }) {
       <h2>Game Options</h2>
       <div
         id="gameOptionsShortDescription"
-        className={style.gameOptionsShortDescription}
+        className={style?.gameOptionsShortDescription}
       >
         <ol>
           <li>Add characters to the game with the menus below.</li>
@@ -22,7 +22,7 @@ export default function GameDescription({ style }) {
       </div>
       <div
         id="gameOptionsFullDescription"
-        className={style.gameOptionsFullDescription}
+        className={style?.gameOptionsFullDescription}
       >
         <ul>
           <li>
@@ -67,14 +67,14 @@ export default function GameDescription({ style }) {
         </ul>
       </div>
       <button
-        className={style.learnMoreButton}
+        className={style?.learnMoreButton}
         onClick={({ target }) => {
           document
             .getElementById("gameOptionsFullDescription")
-            .classList.add(style.inflate);
+            .classList.add(style?.inflate);
           document
             .getElementById("gameOptionsShortDescription")
-            .classList.add(style.deflate);
+            .classList.add(style?.deflate);
           target.style.display = "none";
         }}
       >

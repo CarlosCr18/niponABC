@@ -17,8 +17,8 @@ export default function InfoComponent({
     sound.playSound();
   };
 
-  let imageArray = image.length > 0 ? [...image] : [image];
-  let examplesArray = examples.length > 0 ? [...examples] : [examples];
+  let imageArray = image?.length > 0 ? [...image] : [image];
+  let examplesArray = examples?.length > 0 ? [...examples] : [examples];
 
   return (
     <div className={`${style.infoContainer}`} id={id}>
@@ -33,7 +33,7 @@ export default function InfoComponent({
       <h3 className={style.title}>{title}</h3>
 
       <div className={style.imgContainer}>
-        {imageArray.map((img, i) => (
+        {imageArray?.map((img, i) => (
           <img
             key={img + i + "key"}
             loading="lazy"
@@ -54,7 +54,7 @@ export default function InfoComponent({
       <audio id="audio" src={sound} />
       <h3>Examples</h3>
       <div className={style.examplesContainer}>
-        {examples.map((e, index) => {
+        {examples?.map((e, index) => {
           let colorChar =
             index !== 1
               ? `${style.examples}`
