@@ -10,7 +10,7 @@ export default function Custom404() {
       </Head>
       <h1>404 - Site under construction</h1>
       <Link href="/">
-        <a>Return to Login</a>
+        <a>Return to Game</a>
       </Link>
 
       <style jsx global>{`
@@ -36,6 +36,7 @@ export default function Custom404() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          text-align: center;
           height: 100%;
           width: 100%;
           font-family: "Oshidashi";

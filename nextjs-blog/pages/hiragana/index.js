@@ -12,7 +12,7 @@ export default function Hiragana() {
     <div className="container">
       <Head>
         <title>NiponABC Hiragana</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <link
           rel="preload"
           href="/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2"
