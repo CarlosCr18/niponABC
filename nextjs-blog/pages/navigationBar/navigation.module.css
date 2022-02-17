@@ -4,7 +4,23 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(138, 11, 11);
+  background: rgb(138, 11, 11);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(138, 11, 11, 1) 0%,
+    rgba(197, 17, 17, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(138, 11, 11, 1) 0%,
+    rgba(197, 17, 17, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(138, 11, 11, 1) 0%,
+    rgba(197, 17, 17, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8a0b0b",endColorstr="#c51111",GradientType=1);
   font-size: var(--step--1);
   top: 0;
   left: 0;

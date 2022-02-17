@@ -4,9 +4,9 @@
   font-weight: 400;
   font-display: swap;
   src: local(""),
-    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff2")
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2")
       format("woff2"),
-    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff")
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff")
       format("woff");
 }
 

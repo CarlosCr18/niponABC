@@ -22,7 +22,23 @@
   color: #fff;
   margin-bottom: 5%;
   border-radius: 5%;
-  background-color: #0a9abe;
+  background: rgb(138, 11, 11);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(138, 11, 11, 1) 0%,
+    rgba(197, 17, 17, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(138, 11, 11, 1) 0%,
+    rgba(197, 17, 17, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(138, 11, 11, 1) 0%,
+    rgba(197, 17, 17, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8a0b0b",endColorstr="#c51111",GradientType=1);
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -61,11 +77,12 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #0f4a58;
+  background-color: #f7f7f7;
 }
 
 .loginButtonRed {
-  background-color: #d3d3d3;
+  background: rgb(197, 17, 17);
+
   display: flex;
   font-size: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
   border: none;
@@ -74,9 +91,10 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   text-decoration: none;
   border-radius: 20%;
-  color: black;
+  color: white;
 }
 
 .loginButton:hover,

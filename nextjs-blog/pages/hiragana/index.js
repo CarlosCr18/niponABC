@@ -13,6 +13,13 @@ export default function Hiragana() {
       <Head>
         <title>NiponABC Hiragana</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
       </Head>
       <NavBar />
       <h1 className={style.title}>

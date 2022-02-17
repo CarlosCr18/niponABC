@@ -1106,9 +1106,9 @@ export const katakana = [
     lat: "a",
     infoImg: ["/images/katakana/a.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "エンジニア", lat: "enjinia", meaning: "engineer" },
+      { jap: "アイスクリーム", lat: "aisukurīmu", meaning: "ice cream" },
+      { jap: "アルファベット", lat: "arufabetto", meaning: "alphabet" },
     ],
   },
   {
@@ -1116,9 +1116,9 @@ export const katakana = [
     lat: "i",
     infoImg: ["/images/katakana/i.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "スイカ", lat: "suika", meaning: "watermelon " },
+      { jap: "サンドイッチ", lat: "sandoitchi", meaning: "sandwich " },
+      { jap: "ワイン", lat: "wain", meaning: "wine " },
     ],
   },
   {
@@ -1136,9 +1136,9 @@ export const katakana = [
     lat: "e",
     infoImg: ["/images/katakana/e.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "エレベーター", lat: "erebētā", meaning: "elevator " },
+      { jap: "ハエ", lat: "hae", meaning: "housefly " },
+      { jap: "エスカレーター", lat: "esukarētā", meaning: "escalator " },
     ],
   },
   {
@@ -1146,8 +1146,8 @@ export const katakana = [
     lat: "o",
     infoImg: ["/images/katakana/o.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "オレンジ", lat: "orenji", meaning: "orange " },
+      { jap: "オオカミ", lat: "ōkami", meaning: "wolf " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1156,9 +1156,9 @@ export const katakana = [
     lat: "ka",
     infoImg: ["/images/katakana/ka.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "イカ", lat: "ika", meaning: "squid " },
+      { jap: "カ", lat: "ka", meaning: "mosquito" },
+      { jap: "カタツムリ", lat: "katatsumuri", meaning: "snail " },
     ],
   },
   {
@@ -1166,9 +1166,9 @@ export const katakana = [
     lat: "ki",
     infoImg: ["/images/katakana/ki.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "キロ", lat: "kiro", meaning: "kilo" },
+      { jap: "キリン", lat: "kirin", meaning: "giraffe " },
+      { jap: "ゴキブリ", lat: "gokiburi", meaning: "cockroach " },
     ],
   },
   {
@@ -1176,9 +1176,9 @@ export const katakana = [
     lat: "ku",
     infoImg: ["/images/katakana/ku.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ナメクジ", lat: "namekuji", meaning: "slug " },
+      { jap: "クリ", lat: "kuri", meaning: "chestnut tree" },
+      { jap: "インク", lat: "inku", meaning: "ink " },
     ],
   },
   {
@@ -1196,9 +1196,9 @@ export const katakana = [
     lat: "ko",
     infoImg: ["/images/katakana/ko.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "パソコン", lat: "pasokon", meaning: "personal computer" },
+      { jap: "タコ", lat: "tako", meaning: "octopus " },
+      { jap: "コーヒー", lat: "kōhī", meaning: "coffee " },
     ],
   },
   {
@@ -1206,8 +1206,8 @@ export const katakana = [
     lat: "ga",
     infoImg: ["/images/katakana/ga.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ガス", lat: "gasu", meaning: "gas " },
+      { jap: "ガ", lat: "ga", meaning: "moth " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1226,7 +1226,7 @@ export const katakana = [
     lat: "gu",
     infoImg: ["/images/katakana/gu.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "グラム", lat: "guramu", meaning: "gram " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1236,7 +1236,7 @@ export const katakana = [
     lat: "ge",
     infoImg: ["/images/katakana/ge.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "トカゲ", lat: "tokage", meaning: "lizard " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1246,9 +1246,9 @@ export const katakana = [
     lat: "go",
     infoImg: ["/images/katakana/go.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "リンゴ", lat: "ringo", meaning: "apple " },
+      { jap: "けしゴム", lat: "keshigomu", meaning: "eraser " },
+      { jap: "ゴキブリ", lat: "gokiburi", meaning: "cockroach " },
     ],
   },
   {
@@ -1256,8 +1256,8 @@ export const katakana = [
     lat: "sa",
     infoImg: ["/images/katakana/sa.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "サラダ ", lat: "sarada", meaning: "salad " },
+      { jap: "サンドイッチ", lat: "sandoitchi", meaning: "sandwich " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1266,8 +1266,8 @@ export const katakana = [
     lat: "shi",
     infoImg: ["/images/katakana/shi.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "システム", lat: "shisutemu", meaning: "system " },
+      { jap: "ナシ", lat: "nashi", meaning: "pear " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1276,9 +1276,9 @@ export const katakana = [
     lat: "su",
     infoImg: ["/images/katakana/su.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "スイカ", lat: "suika", meaning: "watermelon " },
+      { jap: "ガス", lat: "gasu", meaning: "gas " },
+      { jap: "スポーツ", lat: "supōtsu", meaning: "sport " },
     ],
   },
   {
@@ -1286,7 +1286,7 @@ export const katakana = [
     lat: "se",
     infoImg: ["/images/katakana/se.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "センチ ", lat: "senchi", meaning: "centimeter " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1296,7 +1296,7 @@ export const katakana = [
     lat: "so",
     infoImg: ["/images/katakana/so.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "パソコン", lat: "pasokon", meaning: "personal computer" },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1306,7 +1306,7 @@ export const katakana = [
     lat: "za",
     infoImg: ["/images/katakana/za.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "デザート", lat: "dezāto", meaning: "dessert " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1316,9 +1316,9 @@ export const katakana = [
     lat: "ji",
     infoImg: ["/images/katakana/ji.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ジッパー", lat: "jippā", meaning: "zipper" },
+      { jap: "オレンジ", lat: "orenji", meaning: "orange " },
+      { jap: "ナメクジ", lat: "namekuji", meaning: "slug " },
     ],
   },
   {
@@ -1326,7 +1326,7 @@ export const katakana = [
     lat: "zu",
     infoImg: ["/images/katakana/zu.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ミミズ", lat: "mimizu", meaning: "earthworm " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1336,7 +1336,7 @@ export const katakana = [
     lat: "ze",
     infoImg: ["/images/katakana/ze.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ゼロ", lat: "zero", meaning: "zero" },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1356,9 +1356,9 @@ export const katakana = [
     lat: "ta",
     infoImg: ["/images/katakana/ta.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "チーター", lat: "chītā", meaning: "cheetah " },
+      { jap: "バッタ", lat: "batta", meaning: "grasshopper " },
+      { jap: "ホタル", lat: "hotaru", meaning: "firefly " },
     ],
   },
   {
@@ -1366,9 +1366,9 @@ export const katakana = [
     lat: "chi",
     infoImg: ["/images/katakana/chi.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "インチ", lat: "inchi", meaning: "inch " },
+      { jap: "チョーク", lat: "chōku", meaning: "chalk " },
+      { jap: "センチ", lat: "senchi", meaning: "centimeter " },
     ],
   },
   {
@@ -1376,9 +1376,9 @@ export const katakana = [
     lat: "tsu",
     infoImg: ["/images/katakana/tsu.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ドイツ語", lat: "doitsugo", meaning: "German [language]" },
+      { jap: "スポーツ", lat: "supōtsu", meaning: "sport " },
+      { jap: "カタツムリ", lat: "katatsumuri", meaning: "snail " },
     ],
   },
   {
@@ -1386,8 +1386,8 @@ export const katakana = [
     lat: "te",
     infoImg: ["/images/katakana/te.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ホテル", lat: "hoteru", meaning: "hotel " },
+      { jap: "システム", lat: "shisutemu", meaning: "system " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1396,9 +1396,9 @@ export const katakana = [
     lat: "to",
     infoImg: ["/images/katakana/to.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "トンボ", lat: "tonbo", meaning: "dragonfly " },
+      { jap: "トカゲ", lat: "tokage", meaning: "lizard " },
+      { jap: "トマト", lat: "tomato ", meaning: "tomato " },
     ],
   },
   {
@@ -1406,8 +1406,8 @@ export const katakana = [
     lat: "da",
     infoImg: ["/images/katakana/da.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "サラダ", lat: "sarada", meaning: "salad " },
+      { jap: "カレンダー", lat: "karendā", meaning: "calendar " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1436,7 +1436,7 @@ export const katakana = [
     lat: "de",
     infoImg: ["/images/katakana/de.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "デザート", lat: "dezāto", meaning: "dessert " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1446,9 +1446,9 @@ export const katakana = [
     lat: "do",
     infoImg: ["/images/katakana/do.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "サンドイッチ", lat: "sandoitchi", meaning: "sandwich " },
+      { jap: "ドア", lat: "doa", meaning: "door " },
+      { jap: "ドイツ語", lat: "doitsugo", meaning: "German [language] " },
     ],
   },
   {
@@ -1456,9 +1456,13 @@ export const katakana = [
     lat: "na",
     infoImg: ["/images/katakana/na.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "バナナ", lat: "banana ", meaning: "banana " },
+      {
+        jap: "カタカナ",
+        lat: "katakana",
+        meaning: "katakana syllabary characters",
+      },
+      { jap: "ナシ", lat: "nashi", meaning: "pear " },
     ],
   },
   {
@@ -1466,7 +1470,7 @@ export const katakana = [
     lat: "ni",
     infoImg: ["/images/katakana/ni.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "エンジニア", lat: "enjinia", meaning: "engineer" },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1496,7 +1500,7 @@ export const katakana = [
     lat: "no",
     infoImg: ["/images/katakana/no.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ノート", lat: "nōto", meaning: "notebook " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1506,7 +1510,7 @@ export const katakana = [
     lat: "ha",
     infoImg: ["/images/katakana/ha.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ハエ", lat: "hae", meaning: "housefly " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1516,7 +1520,7 @@ export const katakana = [
     lat: "hi",
     infoImg: ["/images/katakana/hi.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "コーヒー", lat: "kōhī", meaning: "coffee " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1526,9 +1530,9 @@ export const katakana = [
     lat: "fu",
     infoImg: ["/images/katakana/fu.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ファスナー", lat: "fasunā", meaning: "zipper" },
+      { jap: "アルファベット", lat: "arufabetto", meaning: "alphabet " },
+      { jap: "フランス語", lat: "furansugo", meaning: "French [language]" },
     ],
   },
   {
@@ -1546,9 +1550,9 @@ export const katakana = [
     lat: "ho",
     infoImg: ["/images/katakana/ho.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ホタル", lat: "hotaru", meaning: "firefly " },
+      { jap: "ホテル ", lat: "hoteru", meaning: "hotel " },
+      { jap: "ホッチキス", lat: "hotchikisu", meaning: "stapler " },
     ],
   },
   {
@@ -1556,9 +1560,9 @@ export const katakana = [
     lat: "ba",
     infoImg: ["/images/katakana/ba.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "バスてい", lat: "basutei", meaning: "bus-stop " },
+      { jap: "カバー", lat: "kabā", meaning: "book cover " },
+      { jap: "バナナ", lat: "banana", meaning: "banana" },
     ],
   },
   {
@@ -1566,7 +1570,7 @@ export const katakana = [
     lat: "bi",
     infoImg: ["/images/katakana/bi.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ビール", lat: "bīru", meaning: "beer " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1576,7 +1580,7 @@ export const katakana = [
     lat: "bu",
     infoImg: ["/images/katakana/bu.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ゴキブリ", lat: "gokiburi", meaning: "cockroach " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1586,9 +1590,9 @@ export const katakana = [
     lat: "be",
     infoImg: ["/images/katakana/be.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "エレベーター ", lat: "erebētā", meaning: "elevator " },
+      { jap: "ベルト", lat: "beruto", meaning: "belt " },
+      { jap: "アルファベット", lat: "arufabetto", meaning: "alphabet " },
     ],
   },
   {
@@ -1596,9 +1600,9 @@ export const katakana = [
     lat: "bo",
     infoImg: ["/images/katakana/bo.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "トンボ", lat: "tonbo", meaning: "dragonfly" },
+      { jap: "ボールペン", lat: "bōrupen", meaning: "ball-point pen " },
+      { jap: "ボタン", lat: "botan", meaning: "button " },
     ],
   },
   {
@@ -1606,9 +1610,9 @@ export const katakana = [
     lat: "pa",
     infoImg: ["/images/katakana/pa.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ジッパー", lat: "jippā", meaning: "zipper, zipper fastener " },
+      { jap: "パソコン", lat: "pasokon", meaning: "personal computer " },
+      { jap: "パン", lat: "pan", meaning: "bread " },
     ],
   },
   {
@@ -1616,7 +1620,7 @@ export const katakana = [
     lat: "pi",
     infoImg: ["/images/katakana/pi.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ピンク", lat: "pinku", meaning: "pink " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1636,7 +1640,7 @@ export const katakana = [
     lat: "pe",
     infoImg: ["/images/katakana/pe.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "スペイン語", lat: "supeingo", meaning: "Spanish [language] " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1646,7 +1650,7 @@ export const katakana = [
     lat: "po",
     infoImg: ["/images/katakana/po.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "スポーツ", lat: "supōtsu", meaning: "sport " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1656,8 +1660,12 @@ export const katakana = [
     lat: "ma",
     infoImg: ["/images/katakana/ma.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "トマト", lat: "tomato ", meaning: "tomato " },
+      {
+        jap: "ローマ字",
+        lat: "rōmaji",
+        meaning: "Roman characters, Latin script",
+      },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1666,9 +1674,9 @@ export const katakana = [
     lat: "mi",
     infoImg: ["/images/katakana/mi.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "オオカミ", lat: "ōkami", meaning: "wolf " },
+      { jap: "ミミズ", lat: "mimizu", meaning: "earthworm " },
+      { jap: "ミカン", lat: "mikan", meaning: "mandarin orange " },
     ],
   },
   {
@@ -1676,9 +1684,9 @@ export const katakana = [
     lat: "mu",
     infoImg: ["/images/katakana/mu.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "グラム", lat: "guramu", meaning: "gram " },
+      { jap: "けしゴム", lat: "keshigomu", meaning: "eraser " },
+      { jap: "カタツムリ", lat: "katatsumuri", meaning: "snail " },
     ],
   },
   {
@@ -1686,9 +1694,9 @@ export const katakana = [
     lat: "me",
     infoImg: ["/images/katakana/me.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ナメクジ", lat: "namekuji", meaning: "slug " },
+      { jap: "メートル", lat: "mētoru", meaning: "meter " },
+      { jap: "センチメートル", lat: "senchi", meaning: "centimeter " },
     ],
   },
   {
@@ -1696,8 +1704,8 @@ export const katakana = [
     lat: "mo",
     infoImg: ["/images/katakana/mo.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "クモ", lat: "kumo", meaning: "spider " },
+      { jap: "モモ", lat: "momo", meaning: "peach " },
       { jap: "", lat: "", meaning: "" },
     ],
   },
@@ -1738,9 +1746,9 @@ export const katakana = [
     lat: "ra",
     infoImg: ["/images/katakana/ra.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "サラダ", lat: "sarada", meaning: "salad " },
+      { jap: "グラム", lat: "guramu", meaning: "gram " },
+      { jap: "フランス語", lat: "furansugo", meaning: "French [language]" },
     ],
   },
   {
@@ -1748,9 +1756,9 @@ export const katakana = [
     lat: "ri",
     infoImg: ["/images/katakana/ri.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "キリン", lat: "kirin", meaning: "giraffe " },
+      { jap: "リットル ", lat: "rittoru", meaning: "litre " },
+      { jap: "リンゴ", lat: "ringo", meaning: "apple " },
     ],
   },
   {
@@ -1758,9 +1766,9 @@ export const katakana = [
     lat: "ru",
     infoImg: ["/images/katakana/ru.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ビール", lat: "bīru", meaning: "beer " },
+      { jap: "メートル ", lat: "mētoru", meaning: "meter " },
+      { jap: "リットル ", lat: "rittoru", meaning: "litre " },
     ],
   },
   {
@@ -1768,9 +1776,9 @@ export const katakana = [
     lat: "re",
     infoImg: ["/images/katakana/re.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "エレベーター ", lat: "erebētā", meaning: "elevator " },
+      { jap: "オレンジ", lat: "orenji", meaning: "orange " },
+      { jap: "カレンダー", lat: "karendā", meaning: "calendar " },
     ],
   },
   {
@@ -1778,9 +1786,13 @@ export const katakana = [
     lat: "ro",
     infoImg: ["/images/katakana/ro.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "キロ", lat: "kiro", meaning: "kilo" },
+      {
+        jap: "ローマ字",
+        lat: "rōmaji",
+        meaning: "Roman characters, Latin script",
+      },
+      { jap: "ゼロ", lat: "zero", meaning: "zero" },
     ],
   },
   {
@@ -1788,7 +1800,7 @@ export const katakana = [
     lat: "wa",
     infoImg: ["/images/katakana/wa.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "ワイン", lat: "wain", meaning: "wine " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1811,9 +1823,9 @@ export const katakana = [
     lat: "n/m",
     infoImg: ["/images/katakana/n.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
-      { jap: "", lat: "", meaning: "" },
+      { jap: "、スペイン語", lat: "supeingo", meaning: "Spanish [language]" },
+      { jap: "ピンク ", lat: "pinku", meaning: "pink " },
+      { jap: "ボタン", lat: "botan", meaning: "button " },
     ],
   },
   { jap: "", lat: "" },
@@ -1947,7 +1959,7 @@ export const katakanaCombinations = [
     lat: "cha",
     infoImg: ["/images/katakana/chi.jpg", "/images/katakana/ya.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "チャック", lat: "chakku", meaning: "zipper" },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],
@@ -1967,7 +1979,7 @@ export const katakanaCombinations = [
     lat: "cho",
     infoImg: ["/images/katakana/chi.jpg", "/images/katakana/yo.jpg"],
     examples: [
-      { jap: "", lat: "", meaning: "" },
+      { jap: "チョーク", lat: "chōku", meaning: "chalk " },
       { jap: "", lat: "", meaning: "" },
       { jap: "", lat: "", meaning: "" },
     ],

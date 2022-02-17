@@ -187,6 +187,20 @@ export default function Game() {
       <Head>
         <title>NiponABC Game</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
       </Head>
       <NavBar />
       <GameDescription style={style} />

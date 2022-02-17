@@ -4,21 +4,22 @@
   font-weight: 400;
   font-display: swap;
   src: local(""),
-    url("../../assets/fonts/rampart-one-v5-latin_japanese-regular.woff2")
+    url("/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff2")
       format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../../assets/fonts/rampart-one-v5-latin_japanese-regular.woff")
+      url("/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff")
       format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 @font-face {
   font-family: "Oshidashi";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: local(""),
-    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff2")
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2")
       format("woff2"),
-    url("../../assets/fonts/sawarabi-mincho-v15-latin_japanese-regular.woff")
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff")
       format("woff");
 }
 .title {
@@ -82,7 +83,6 @@
   top: 0;
   left: 0;
   padding: clamp(0.21rem, 0.19rem + 0.1vw, 0.96rem);
-  color: rgb(22, 185, 22);
   font-size: var(--font-size--2);
 }
 .wrong {
@@ -155,7 +155,6 @@
     rgba(255, 0, 0, 1) 0%,
     rgba(191, 46, 2, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#bf2e02",GradientType=1);
 }
 
 .gameOption {

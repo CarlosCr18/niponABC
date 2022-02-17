@@ -8,7 +8,7 @@ export default function Custom404() {
         <title>NiponABC 404</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>404 - Page Not Found</h1>
+      <h1>404 - Site under construction</h1>
       <Link href="/">
         <a>Return to Login</a>
       </Link>
