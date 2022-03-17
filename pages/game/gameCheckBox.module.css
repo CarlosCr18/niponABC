@@ -23,12 +23,16 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 .gameOptionsTitle {
-  width: 100%;
+  width: 60%;
   padding: clamp(0.31rem, 0.29rem + 0.1vw, 1.16rem);
+}
+
+.gameOptionsCounter {
+  width: min(30%, 10rem);
 }
 
 .selectButtons {

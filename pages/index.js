@@ -7,20 +7,13 @@ import GameButtons from "./game/gameButtons.js";
 import NavBar from "./navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "./footer/footer.js";
-import { hiragana } from "../languageDatabase.js";
-import { hiraganaCombinations } from "../languageDatabase.js";
-import { katakana } from "../languageDatabase.js";
-import { katakanaCombinations } from "../languageDatabase.js";
+import { hiraganaData } from "../languageDatabase.js";
+import { hiraganaCombinationsData } from "../languageDatabase.js";
+import { katakanaData } from "../languageDatabase.js";
+import { katakanaCombinationsData } from "../languageDatabase.js";
 
 export default function Game() {
-  const fullCharacterList = [
-    hiragana,
-    hiraganaCombinations,
-    katakana,
-    katakanaCombinations,
-  ];
-
-  // console.log(fullCharacterList, "fullcharacterlist");
+  const [fullCharacterList, setFullCharacterList] = useState(["", "", "", ""]);
 
   const [correct, setCorrect] = useState(0);
 
@@ -33,6 +26,61 @@ export default function Game() {
   const [timer, setTimer] = useState(-1);
   const [isGameOver, setIsGameOver] = useState(true);
   const [missedCharacters, setMissedCharacters] = useState([""]);
+  const [isDataFetched, setIsDataFetched] = useState(false);
+
+  useEffect(() => {
+    if (isDataFetched) {
+      //Do something when data is fetched
+    } else {
+      fetch("https://japanese-alphabet-api.herokuapp.com/api/all", {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then(function (json) {
+          let tempFullCharacterList = [];
+          for (const key in json) {
+            tempFullCharacterList.push(json[key]);
+          }
+          tempFullCharacterList.forEach((alphabet, index) => {
+            alphabet.content.forEach((element, elementIndex) => {
+              element.jap = element.japanese;
+              element.lat = element.romaji;
+              element.examples.forEach((example) => {
+                example.lat = example.romaji;
+                example.jap = example.japanese;
+              });
+              switch (index) {
+                case 2:
+                  element.infoImg = hiraganaData[elementIndex].infoImg;
+                  break;
+                case 0:
+                  element.infoImg =
+                    hiraganaCombinationsData[elementIndex].infoImg;
+                  break;
+                case 3:
+                  element.infoImg = katakanaData[elementIndex].infoImg;
+                  break;
+                case 1:
+                  element.infoImg =
+                    katakanaCombinationsData[elementIndex].infoImg;
+                  break;
+              }
+            });
+          });
+
+          setFullCharacterList([
+            tempFullCharacterList[2].content,
+            tempFullCharacterList[0].content,
+            tempFullCharacterList[3].content,
+            tempFullCharacterList[1].content,
+          ]);
+          setIsDataFetched(true);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [isDataFetched]);
 
   //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
@@ -114,8 +162,6 @@ export default function Game() {
       gameChar.classList.remove(`${style.gameTransition}`);
       gameChar.style.left = "0px";
       setTimer(0);
-      document.querySelector(`.${style.missedContainer}`).style.display =
-        "block";
     } else {
       setIsGameOver(true);
       document.querySelectorAll(`.${style.gameOption}`).forEach((element) => {
@@ -232,37 +278,43 @@ export default function Game() {
           currentOrder={currentOrder}
         />
       </div>
-      <div className={style.gameButtonsContainer}>
-        <button
-          type="button"
-          id="startGame"
-          className={style.gameButton}
-          onClick={() => {
-            setIsRunning(true);
-            setIsGameOver(false);
-          }}
-        >
-          Start Game
-        </button>
-        <button
-          type="button"
-          id="stopGame"
-          className={style.gameButton}
-          onClick={() => setIsRunning(false)}
-        >
-          Stop Game
-        </button>
-      </div>
-      <div className={style.missedContainer}>
-        {isGameOver ? (
-          <>
-            <h2>You missed</h2>
-            <Table arrayProps={missedCharacters} />
-          </>
-        ) : (
-          <h2></h2>
-        )}
-      </div>
+      {localCharacterList.length > 0 && (
+        <div className={style.gameButtonsContainer}>
+          <button
+            type="button"
+            id="startGame"
+            className={
+              isRunning
+                ? style.gameButton
+                : `${style.gameButton} ${style.greenSelected}`
+            }
+            onClick={() => {
+              setIsRunning(true);
+              setIsGameOver(false);
+            }}
+          >
+            Start Game
+          </button>
+          <button
+            type="button"
+            id="stopGame"
+            className={
+              !isRunning
+                ? style.gameButton
+                : `${style.gameButton} ${style.redSelected}`
+            }
+            onClick={() => setIsRunning(false)}
+          >
+            Stop Game
+          </button>
+        </div>
+      )}
+      {isGameOver && wrong > 0 && (
+        <div className={style.missedContainer}>
+          <h2>You missed</h2>
+          <Table arrayProps={missedCharacters} />
+        </div>
+      )}
       <style jsx global>{`
         :root {
           --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
@@ -320,7 +372,7 @@ export default function Game() {
           margin-bottom: ;
         }
         h1 {
-          padding-top: 1rem;
+          padding-top: 10rem;
         }
       `}</style>
       <Footer />

@@ -12,7 +12,7 @@ export default function GameDescription({ style }) {
         id="gameOptionsShortDescription"
         className={style?.gameOptionsShortDescription}
       >
-        <ol>
+        <ol className={style?.listText}>
           <li>Add characters to the game with the menus below.</li>
           <li>Start a new game</li>
           <li>Pick the right answers.</li>
@@ -24,7 +24,7 @@ export default function GameDescription({ style }) {
         id="gameOptionsFullDescription"
         className={style?.gameOptionsFullDescription}
       >
-        <ul>
+        <ul className={style?.listText}>
           <li>
             To add a complete alphabet you can click on the "select all"
             buttons.

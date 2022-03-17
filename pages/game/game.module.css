@@ -28,6 +28,7 @@
 .gameDescription {
   width: min(60ch, 90%) !important;
   text-align: center;
+  padding-bottom: 5rem;
 }
 
 .gameOptionsFullDescription {
@@ -193,10 +194,19 @@
 }
 
 .missedContainer {
-  display: none;
+  display: block;
   padding: 0;
   margin: 0;
   padding-block: 2rem;
   width: min(99%, 40rem);
   text-align: center;
+}
+
+.listText {
+  font-size: var(--step--1);
+  padding-bottom: 2rem;
+}
+
+.listText li {
+  padding: 0.25rem;
 }

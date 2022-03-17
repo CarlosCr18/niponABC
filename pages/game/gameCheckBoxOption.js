@@ -5,7 +5,7 @@ export default function GameCheckBox({
   setLocalCharacterList,
   fullCharacterList,
 }) {
-  const [arrayToReturn, setArrayToReturn] = useState([, [], [], []]);
+  const [arrayToReturn, setArrayToReturn] = useState([[], [], [], []]);
   const [tempArray, setTempArray] = useState([, , ,]);
   const [currentChars, setCurrentChars] = useState(0);
   const [listStatus, setListStatus] = useState(false);
@@ -79,18 +79,8 @@ export default function GameCheckBox({
   useEffect(() => {
     let thisArray = [];
 
-    arrayToReturn.map((e, index) => {
+    arrayToReturn.map((e) => {
       if (e == undefined) return;
-      if (e.length > 0) {
-        document
-          .querySelectorAll(`.${style.gameOptionsList}`)
-          [index].classList.add(style.greenSelected);
-      } else {
-        document
-          .querySelectorAll(`.${style.gameOptionsList}`)
-          [index].classList.remove(style.greenSelected);
-      }
-
       e.map((a) => {
         thisArray.push(a);
       });
@@ -111,8 +101,21 @@ export default function GameCheckBox({
   return (
     <div>
       <ul className={style.languagesUnorginzeslist}>
-        <li className={`${style.gameOptionsList} ${style.greenSelected}`}>
+        <li
+          className={
+            arrayToReturn[0].length == 0
+              ? style.gameOptionsList
+              : `${style.gameOptionsList} ${style.greenSelected}`
+          }
+        >
           <p className={style.gameOptionsTitle}>Hiragana</p>
+          <p className={style.gameOptionsCounter}>
+            {" " +
+              arrayToReturn[0].length +
+              "/" +
+              fullCharacterList[0].length +
+              " "}
+          </p>
           <div className={style.selectButtons}>
             <button
               id="hiraganaButton"
@@ -146,8 +149,21 @@ export default function GameCheckBox({
             </button>
           </div>
         </li>
-        <li className={style.gameOptionsList}>
+        <li
+          className={
+            arrayToReturn[1].length == 0
+              ? style.gameOptionsList
+              : `${style.gameOptionsList} ${style.greenSelected}`
+          }
+        >
           <p className={style.gameOptionsTitle}>Hiragana combinations</p>
+          <p className={style.gameOptionsCounter}>
+            {" " +
+              arrayToReturn[1].length +
+              "/" +
+              fullCharacterList[1].length +
+              " "}
+          </p>
           <div className={style.selectButtons}>
             <button
               className={style.selectAllButton}
@@ -177,8 +193,21 @@ export default function GameCheckBox({
             </button>
           </div>
         </li>
-        <li className={style.gameOptionsList}>
+        <li
+          className={
+            arrayToReturn[2].length == 0
+              ? style.gameOptionsList
+              : `${style.gameOptionsList} ${style.greenSelected}`
+          }
+        >
           <p className={style.gameOptionsTitle}>Katakana</p>
+          <p className={style.gameOptionsCounter}>
+            {" " +
+              arrayToReturn[2].length +
+              "/" +
+              fullCharacterList[2].length +
+              " "}
+          </p>
           <div className={style.selectButtons}>
             <button
               className={style.selectAllButton}
@@ -208,8 +237,21 @@ export default function GameCheckBox({
             </button>
           </div>
         </li>
-        <li className={style.gameOptionsList}>
+        <li
+          className={
+            arrayToReturn[3].length == 0
+              ? style.gameOptionsList
+              : `${style.gameOptionsList} ${style.greenSelected}`
+          }
+        >
           <p className={style.gameOptionsTitle}>Katakana combinations</p>
+          <p className={style.gameOptionsCounter}>
+            {" " +
+              arrayToReturn[3].length +
+              "/" +
+              fullCharacterList[3].length +
+              " "}
+          </p>
           <div className={style.selectButtons}>
             <button
               className={style.selectAllButton}
@@ -239,11 +281,13 @@ export default function GameCheckBox({
             </button>
           </div>
         </li>
-        <li className={style.languageAlert}>
-          <p id="selectOneLanguage" className={style.selectOneLanguage}>
-            {listStatus ? "ㅤ" : "Please Select at least one option"}
-          </p>
-        </li>
+        {!listStatus && (
+          <li className={style.languageAlert}>
+            <p id="selectOneLanguage" className={style.selectOneLanguage}>
+              Please Select at least one option
+            </p>
+          </li>
+        )}
       </ul>
       <div className={style.charsList}>
         <div className={style.selectCharsbuttons}>
