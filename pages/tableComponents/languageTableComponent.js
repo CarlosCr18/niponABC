@@ -24,7 +24,7 @@ export default function LanguageTableComponent({ arrayProps }) {
       .classList.add("infoComponent_scaleUp__ilu5D");
   };
 
-  if (arrayProps.length > 0) {
+  if (arrayProps?.length > 0) {
     return (
       <div className={style.charactersGrid}>
         {arrayProps?.map((letter, index) => {

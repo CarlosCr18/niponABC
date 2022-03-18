@@ -97,252 +97,261 @@ export default function GameCheckBox({
 
     setLocalCharacterList(thisArray);
   }, [arrayToReturn]);
-
-  return (
-    <div>
-      <ul className={style.languagesUnorginzeslist}>
-        <li
-          className={
-            arrayToReturn[0].length == 0
-              ? style.gameOptionsList
-              : `${style.gameOptionsList} ${style.greenSelected}`
-          }
-        >
-          <p className={style.gameOptionsTitle}>Hiragana</p>
-          <p className={style.gameOptionsCounter}>
-            {" " +
-              arrayToReturn[0].length +
-              "/" +
-              fullCharacterList[0].length +
-              " "}
-          </p>
-          <div className={style.selectButtons}>
-            <button
-              id="hiraganaButton"
-              className={style.selectAllButton}
-              onClick={() => {
-                addAllChars(0);
-                closeElement();
-              }}
-            >
-              Select All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                clearAllCharsButton(0);
-                closeElement();
-              }}
-            >
-              Clear All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={(target) => {
-                changeTempArray(0);
-                setTimeout(() => {
-                  changeTempArray(0);
-                }, 400);
-              }}
-            >
-              Open list
-            </button>
-          </div>
-        </li>
-        <li
-          className={
-            arrayToReturn[1].length == 0
-              ? style.gameOptionsList
-              : `${style.gameOptionsList} ${style.greenSelected}`
-          }
-        >
-          <p className={style.gameOptionsTitle}>Hiragana combinations</p>
-          <p className={style.gameOptionsCounter}>
-            {" " +
-              arrayToReturn[1].length +
-              "/" +
-              fullCharacterList[1].length +
-              " "}
-          </p>
-          <div className={style.selectButtons}>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                addAllChars(1);
-                closeElement();
-              }}
-            >
-              Select All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                clearAllCharsButton(1);
-                closeElement();
-              }}
-            >
-              Clear All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={(target) => {
-                changeTempArray(1);
-              }}
-            >
-              Open list
-            </button>
-          </div>
-        </li>
-        <li
-          className={
-            arrayToReturn[2].length == 0
-              ? style.gameOptionsList
-              : `${style.gameOptionsList} ${style.greenSelected}`
-          }
-        >
-          <p className={style.gameOptionsTitle}>Katakana</p>
-          <p className={style.gameOptionsCounter}>
-            {" " +
-              arrayToReturn[2].length +
-              "/" +
-              fullCharacterList[2].length +
-              " "}
-          </p>
-          <div className={style.selectButtons}>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                addAllChars(2);
-                closeElement();
-              }}
-            >
-              Select All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                clearAllCharsButton(2);
-                closeElement();
-              }}
-            >
-              Clear All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={(target) => {
-                changeTempArray(2);
-              }}
-            >
-              Open list
-            </button>
-          </div>
-        </li>
-        <li
-          className={
-            arrayToReturn[3].length == 0
-              ? style.gameOptionsList
-              : `${style.gameOptionsList} ${style.greenSelected}`
-          }
-        >
-          <p className={style.gameOptionsTitle}>Katakana combinations</p>
-          <p className={style.gameOptionsCounter}>
-            {" " +
-              arrayToReturn[3].length +
-              "/" +
-              fullCharacterList[3].length +
-              " "}
-          </p>
-          <div className={style.selectButtons}>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                addAllChars(3);
-                closeElement();
-              }}
-            >
-              Select All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={() => {
-                clearAllCharsButton(3);
-                closeElement();
-              }}
-            >
-              Clear All
-            </button>
-            <button
-              className={style.selectAllButton}
-              onClick={(target) => {
-                changeTempArray(3);
-              }}
-            >
-              Open list
-            </button>
-          </div>
-        </li>
-        {!listStatus && (
-          <li className={style.languageAlert}>
-            <p id="selectOneLanguage" className={style.selectOneLanguage}>
-              Please Select at least one option
+  if (fullCharacterList?.length > 0) {
+    return (
+      <div>
+        <ul className={style.languagesUnorginzeslist}>
+          <li
+            className={
+              arrayToReturn[0].length == 0
+                ? style.gameOptionsList
+                : `${style.gameOptionsList} ${style.greenSelected}`
+            }
+          >
+            <p className={style.gameOptionsTitle}>Hiragana</p>
+            <p className={style.gameOptionsCounter}>
+              {" " +
+                arrayToReturn[0].length +
+                "/" +
+                fullCharacterList[0].length +
+                " "}
             </p>
+            <div className={style.selectButtons}>
+              <button
+                id="hiraganaButton"
+                className={style.selectAllButton}
+                onClick={() => {
+                  addAllChars(0);
+                  closeElement();
+                }}
+              >
+                Select All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  clearAllCharsButton(0);
+                  closeElement();
+                }}
+              >
+                Clear All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={(target) => {
+                  changeTempArray(0);
+                  setTimeout(() => {
+                    changeTempArray(0);
+                  }, 400);
+                }}
+              >
+                Open list
+              </button>
+            </div>
           </li>
-        )}
-      </ul>
-      <div className={style.charsList}>
-        <div className={style.selectCharsbuttons}>
+          <li
+            className={
+              arrayToReturn[1].length == 0
+                ? style.gameOptionsList
+                : `${style.gameOptionsList} ${style.greenSelected}`
+            }
+          >
+            <p className={style.gameOptionsTitle}>Hiragana combinations</p>
+            <p className={style.gameOptionsCounter}>
+              {" " +
+                arrayToReturn[1].length +
+                "/" +
+                fullCharacterList[1].length +
+                " "}
+            </p>
+            <div className={style.selectButtons}>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  addAllChars(1);
+                  closeElement();
+                }}
+              >
+                Select All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  clearAllCharsButton(1);
+                  closeElement();
+                }}
+              >
+                Clear All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={(target) => {
+                  changeTempArray(1);
+                }}
+              >
+                Open list
+              </button>
+            </div>
+          </li>
+          <li
+            className={
+              arrayToReturn[2].length == 0
+                ? style.gameOptionsList
+                : `${style.gameOptionsList} ${style.greenSelected}`
+            }
+          >
+            <p className={style.gameOptionsTitle}>Katakana</p>
+            <p className={style.gameOptionsCounter}>
+              {" " +
+                arrayToReturn[2].length +
+                "/" +
+                fullCharacterList[2].length +
+                " "}
+            </p>
+            <div className={style.selectButtons}>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  addAllChars(2);
+                  closeElement();
+                }}
+              >
+                Select All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  clearAllCharsButton(2);
+                  closeElement();
+                }}
+              >
+                Clear All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={(target) => {
+                  changeTempArray(2);
+                }}
+              >
+                Open list
+              </button>
+            </div>
+          </li>
+          <li
+            className={
+              arrayToReturn[3].length == 0
+                ? style.gameOptionsList
+                : `${style.gameOptionsList} ${style.greenSelected}`
+            }
+          >
+            <p className={style.gameOptionsTitle}>Katakana combinations</p>
+            <p className={style.gameOptionsCounter}>
+              {" " +
+                arrayToReturn[3].length +
+                "/" +
+                fullCharacterList[3].length +
+                " "}
+            </p>
+            <div className={style.selectButtons}>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  addAllChars(3);
+                  closeElement();
+                }}
+              >
+                Select All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={() => {
+                  clearAllCharsButton(3);
+                  closeElement();
+                }}
+              >
+                Clear All
+              </button>
+              <button
+                className={style.selectAllButton}
+                onClick={(target) => {
+                  changeTempArray(3);
+                }}
+              >
+                Open list
+              </button>
+            </div>
+          </li>
+          {!listStatus && (
+            <li className={style.languageAlert}>
+              <p id="selectOneLanguage" className={style.selectOneLanguage}>
+                Please Select at least one option
+              </p>
+            </li>
+          )}
+        </ul>
+        <div className={style.charsList}>
+          <div className={style.selectCharsbuttons}>
+            <button
+              onClick={() => {
+                clearAllChars();
+              }}
+            >
+              Clear All
+            </button>
+            <button
+              onClick={() => {
+                selectAllChars();
+              }}
+            >
+              Select All
+            </button>
+            <button
+              className={style.closeButton}
+              onClick={() => closeElement()}
+            >
+              X
+            </button>
+          </div>
+          <div className={style.inputsGrid}>
+            {tempArray.map((e, index) => {
+              return (
+                <div
+                  className={style.gridItem}
+                  key={"gridItem" + e.jap + index}
+                >
+                  <label htmlFor={"checkbox" + e.jap}>
+                    {e.jap + " " + e.lat}
+                  </label>
+                  <input
+                    id={"checkbox" + e.jap}
+                    type="checkbox"
+                    className={style.charsToAdd}
+                    onChange={(target) => {
+                      target.target.checked
+                        ? target.target.parentElement.classList.add(
+                            style.greenSelected
+                          )
+                        : target.target.parentElement.classList.remove(
+                            style.greenSelected
+                          );
+                    }}
+                  ></input>
+                </div>
+              );
+            })}
+          </div>
           <button
+            className={style.addCharsButton}
             onClick={() => {
-              clearAllChars();
+              addCharacters();
             }}
           >
-            Clear All
-          </button>
-          <button
-            onClick={() => {
-              selectAllChars();
-            }}
-          >
-            Select All
-          </button>
-          <button className={style.closeButton} onClick={() => closeElement()}>
-            X
+            Add characters
           </button>
         </div>
-        <div className={style.inputsGrid}>
-          {tempArray.map((e, index) => {
-            return (
-              <div className={style.gridItem} key={"gridItem" + e.jap + index}>
-                <label htmlFor={"checkbox" + e.jap}>
-                  {e.jap + " " + e.lat}
-                </label>
-                <input
-                  id={"checkbox" + e.jap}
-                  type="checkbox"
-                  className={style.charsToAdd}
-                  onChange={(target) => {
-                    target.target.checked
-                      ? target.target.parentElement.classList.add(
-                          style.greenSelected
-                        )
-                      : target.target.parentElement.classList.remove(
-                          style.greenSelected
-                        );
-                  }}
-                ></input>
-              </div>
-            );
-          })}
-        </div>
-        <button
-          className={style.addCharsButton}
-          onClick={() => {
-            addCharacters();
-          }}
-        >
-          Add characters
-        </button>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <dialog open>Loading...</dialog>;
+  }
 }
