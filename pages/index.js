@@ -224,7 +224,7 @@ export default function Game() {
         />
       </div>
 
-      {(localCharacterList[0]?.length > 0 || wrong > 0 || correct > 0) && (
+      {(localCharacterList?.length > 0 || wrong > 0 || correct > 0) && (
         <div className={style.gameButtonsContainer}>
           <button
             type="button"
