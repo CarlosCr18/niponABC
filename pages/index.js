@@ -190,11 +190,16 @@ export default function Game() {
       </Head>
       <NavBar />
       <GameDescription style={style} />
-      <GameCheckBox
-        setIsRunning={setIsRunning}
-        setLocalCharacterList={setGameList}
-        fullCharacterList={fullCharacterList}
-      />
+      {fullCharacterList[0]?.length > 0 ? (
+        <GameCheckBox
+          setIsRunning={setIsRunning}
+          setLocalCharacterList={setGameList}
+          fullCharacterList={fullCharacterList}
+        />
+      ) : (
+        <dialog open>Loading...</dialog>
+      )}
+
       <div className={style.game}>
         <div className={style.correct}>correct: {correct}</div>
         <div className={style.remaining}>
@@ -218,7 +223,8 @@ export default function Game() {
           currentOrder={currentOrder}
         />
       </div>
-      {(localCharacterList.length > 0 || wrong > 0 || correct > 0) && (
+
+      {(localCharacterList[0]?.length > 0 || wrong > 0 || correct > 0) && (
         <div className={style.gameButtonsContainer}>
           <button
             type="button"
@@ -255,6 +261,7 @@ export default function Game() {
           <Table arrayProps={missedCharacters} />
         </div>
       )}
+
       <style jsx global>{`
         :root {
           --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
