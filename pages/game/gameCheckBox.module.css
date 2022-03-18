@@ -10,7 +10,7 @@
 .languagesUnorginzeslist {
   display: flex;
   flex-direction: column;
-  width: min(95%, 45rem);
+  width: min(100%, 45rem);
   align-items: space-between;
   justify-content: center;
   margin-bottom: 2rem;

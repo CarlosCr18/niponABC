@@ -1,5 +1,6 @@
 import style from "./game/game.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AppContext from "../AppContext";
 import Table from "./tableComponents/languageTableComponent.js";
 import GameDescription from "./game/gameDescription.js";
 import GameCheckBox from "./game/gameCheckBoxOption.js";
@@ -7,16 +8,10 @@ import GameButtons from "./game/gameButtons.js";
 import NavBar from "./navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "./footer/footer.js";
-import { hiraganaData } from "../languageDatabase.js";
-import { hiraganaCombinationsData } from "../languageDatabase.js";
-import { katakanaData } from "../languageDatabase.js";
-import { katakanaCombinationsData } from "../languageDatabase.js";
 
 export default function Game() {
-  const [fullCharacterList, setFullCharacterList] = useState(["", "", "", ""]);
-
+  const fullCharacterList = useContext(AppContext);
   const [correct, setCorrect] = useState(0);
-
   const [wrong, setWrong] = useState(0);
   const [localCharacterList, setLocalCharacterList] = useState([""]);
   const [gameList, setGameList] = useState([""]);
@@ -26,61 +21,6 @@ export default function Game() {
   const [timer, setTimer] = useState(-1);
   const [isGameOver, setIsGameOver] = useState(true);
   const [missedCharacters, setMissedCharacters] = useState([""]);
-  const [isDataFetched, setIsDataFetched] = useState(false);
-
-  useEffect(() => {
-    if (isDataFetched) {
-      //Do something when data is fetched
-    } else {
-      fetch("https://japanese-alphabet-api.herokuapp.com/api/all", {
-        method: "GET",
-      })
-        .then((response) => response.json())
-        .then(function (json) {
-          let tempFullCharacterList = [];
-          for (const key in json) {
-            tempFullCharacterList.push(json[key]);
-          }
-          tempFullCharacterList.forEach((alphabet, index) => {
-            alphabet.content.forEach((element, elementIndex) => {
-              element.jap = element.japanese;
-              element.lat = element.romaji;
-              element.examples.forEach((example) => {
-                example.lat = example.romaji;
-                example.jap = example.japanese;
-              });
-              switch (index) {
-                case 2:
-                  element.infoImg = hiraganaData[elementIndex].infoImg;
-                  break;
-                case 0:
-                  element.infoImg =
-                    hiraganaCombinationsData[elementIndex].infoImg;
-                  break;
-                case 3:
-                  element.infoImg = katakanaData[elementIndex].infoImg;
-                  break;
-                case 1:
-                  element.infoImg =
-                    katakanaCombinationsData[elementIndex].infoImg;
-                  break;
-              }
-            });
-          });
-
-          setFullCharacterList([
-            tempFullCharacterList[2].content,
-            tempFullCharacterList[0].content,
-            tempFullCharacterList[3].content,
-            tempFullCharacterList[1].content,
-          ]);
-          setIsDataFetched(true);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  }, [isDataFetched]);
 
   //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
@@ -278,7 +218,7 @@ export default function Game() {
           currentOrder={currentOrder}
         />
       </div>
-      {localCharacterList.length > 0 && (
+      {(localCharacterList.length > 0 || wrong > 0 || correct > 0) && (
         <div className={style.gameButtonsContainer}>
           <button
             type="button"
@@ -309,7 +249,7 @@ export default function Game() {
           </button>
         </div>
       )}
-      {isGameOver && wrong > 0 && (
+      {wrong > 0 && (
         <div className={style.missedContainer}>
           <h2>You missed</h2>
           <Table arrayProps={missedCharacters} />

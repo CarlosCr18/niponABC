@@ -183,13 +183,7 @@ export const hiraganaData = [
     infoImg: ["/images/hiragana/ya.jpg"],
   },
   {
-    infoImg: "",
-  },
-  {
     infoImg: ["/images/hiragana/yu.jpg"],
-  },
-  {
-    infoImg: "",
   },
   {
     infoImg: ["/images/hiragana/yo.jpg"],
@@ -213,31 +207,10 @@ export const hiraganaData = [
     infoImg: ["/images/hiragana/wa.jpg"],
   },
   {
-    infoImg: "",
-  },
-  {
-    infoImg: "",
-  },
-  {
-    infoImg: "",
-  },
-  {
     infoImg: ["/images/hiragana/wo.jpg"],
   },
   {
     infoImg: ["/images/hiragana/n.jpg"],
-  },
-  {
-    infoImg: [""],
-  },
-  {
-    infoImg: [""],
-  },
-  {
-    infoImg: [""],
-  },
-  {
-    infoImg: [""],
   },
 ];
 
@@ -526,11 +499,9 @@ export const katakanaData = [
   {
     infoImg: ["/images/katakana/ya.jpg"],
   },
-  {},
   {
     infoImg: ["/images/katakana/yu.jpg"],
   },
-  {},
   {
     infoImg: ["/images/katakana/yo.jpg"],
   },
@@ -552,19 +523,12 @@ export const katakanaData = [
   {
     infoImg: ["/images/katakana/wa.jpg"],
   },
-  {},
-  {},
-  {},
   {
     infoImg: ["/images/katakana/wo.jpg"],
   },
   {
     infoImg: ["/images/katakana/n.jpg"],
   },
-  {},
-  {},
-  {},
-  {},
 ];
 export const katakanaCombinationsData = [
   {

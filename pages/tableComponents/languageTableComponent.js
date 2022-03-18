@@ -4,12 +4,8 @@ import InfoComponent from "../infoComponent/infoComponent.js";
 
 export default function LanguageTableComponent({ arrayProps }) {
   const [infoTitle, setInfoTitle] = useState("title");
-  const [infoImg, setInfoImg] = useState(["/images/info.png"]);
-  const [infoExamples, setInfoExamples] = useState([
-    "/images/example1.png",
-    "/images/example2.png",
-    "/images/example3.png",
-  ]);
+  const [infoImg, setInfoImg] = useState([""]);
+  const [infoExamples, setInfoExamples] = useState(["", "", ""]);
   const [japLetter, setJapLetter] = useState([""]);
   const [latLetter, setLatLetter] = useState("");
 
@@ -28,43 +24,47 @@ export default function LanguageTableComponent({ arrayProps }) {
       .classList.add("infoComponent_scaleUp__ilu5D");
   };
 
-  return (
-    <div className={style.charactersGrid}>
-      {arrayProps?.map((letter, index) => {
-        return (
-          <button
-            key={"letter" + letter.jap + letter.lat + index}
-            onClick={() => showInfo(letter)}
-            className={
-              index % 10 >= 5
-                ? `${style.characterContainer}`
-                : `${style.characterContainer} ${style.backgroundGrey}`
-            }
-          >
-            <div
-              key={"letterjap" + letter.jap + index}
-              className={style.letterJap}
+  if (arrayProps.length > 0) {
+    return (
+      <div className={style.charactersGrid}>
+        {arrayProps?.map((letter, index) => {
+          return (
+            <button
+              key={"letter" + letter.jap + letter.lat + index}
+              onClick={() => showInfo(letter)}
+              className={
+                index % 10 >= 5
+                  ? `${style.characterContainer}`
+                  : `${style.characterContainer} ${style.backgroundGrey}`
+              }
             >
-              {letter.jap}
-            </div>
-            <div
-              key={"letterLat" + letter.lat + index}
-              className={style.letterLat}
-            >
-              {letter.lat}
-            </div>
-          </button>
-        );
-      })}
-      <InfoComponent
-        id={infoComponentId}
-        title={infoTitle}
-        image={infoImg}
-        sound="sound"
-        examples={infoExamples}
-        japLetter={japLetter}
-        latLetter={latLetter}
-      />
-    </div>
-  );
+              <div
+                key={"letterjap" + letter.jap + index}
+                className={style.letterJap}
+              >
+                {letter.jap}
+              </div>
+              <div
+                key={"letterLat" + letter.lat + index}
+                className={style.letterLat}
+              >
+                {letter.lat}
+              </div>
+            </button>
+          );
+        })}
+        <InfoComponent
+          id={infoComponentId}
+          title={infoTitle}
+          image={infoImg}
+          sound="sound"
+          examples={infoExamples}
+          japLetter={japLetter}
+          latLetter={latLetter}
+        />
+      </div>
+    );
+  } else {
+    return <p>Undefined</p>;
+  }
 }

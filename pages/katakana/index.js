@@ -4,10 +4,18 @@ import TableComb from "../tableComponents/languageCombTableComponent.js";
 import NavBar from "../navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "../footer/footer.js";
-import { katakana } from "../../languageDatabase.js";
-import { katakanaCombinations } from "../../languageDatabase.js";
+import React, { useContext } from "react";
+import AppContext from "/AppContext";
 
 export default function Katakana() {
+  const value = useContext(AppContext);
+  const katakana = value[2];
+  const katakanaCombinations = value[3];
+
+  if (katakana === undefined) {
+    return <dialog open>Loading...</dialog>;
+  }
+
   return (
     <div className="container">
       <Head>
@@ -78,6 +86,11 @@ export default function Katakana() {
           gap: 1rem;
         }
 
+        h1 {
+          padding-top: 7rem;
+          margin-bottom: -2rem;
+        }
+
         .container p {
           width: min(40ch, 90%);
           word-break: break-word;
@@ -88,7 +101,7 @@ export default function Katakana() {
         }
 
         h2 {
-          padding-top: 2rem;
+          padding-top: 4rem;
           margin: 0 auto;
         }
       `}</style>

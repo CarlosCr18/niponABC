@@ -10,7 +10,7 @@ export default function Footer() {
         <a
           className={style.developerLink}
           target="_blank"
-          aria="Link to creator portfolio"
+          aria-label="Link to creator portfolio"
           href="https://carloscr18.github.io/Portfolio/"
         >
           Website developed by Carlos Crespo
