@@ -9,8 +9,8 @@ import AppContext from "/AppContext";
 
 export default function Hiragana() {
   const value = useContext(AppContext);
-  const hiragana = value[2];
-  const hiraganaCombinations = value[3];
+  const hiragana = value[0];
+  const hiraganaCombinations = value[1];
 
   if (hiragana.length > 0) {
     return (
