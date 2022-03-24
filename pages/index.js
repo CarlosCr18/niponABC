@@ -8,6 +8,8 @@ import GameButtons from "./game/gameButtons.js";
 import NavBar from "./navigationBar/navigationBar";
 import Head from "next/head";
 import Footer from "./footer/footer.js";
+import GameStateButtons from "./game/gameStateButtons.js";
+import LoadingDialog from "./loading/loadingDialog.js";
 
 export default function Game() {
   const fullCharacterList = useContext(AppContext);
@@ -21,7 +23,9 @@ export default function Game() {
   const [timer, setTimer] = useState(-1);
   const [isGameOver, setIsGameOver] = useState(true);
   const [missedCharacters, setMissedCharacters] = useState([""]);
+  const [gameState, setGameState] = useState(0);
 
+  console.log(gameState);
   //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
     let gameChar = document.getElementById("gameCharacter");
@@ -168,8 +172,10 @@ export default function Game() {
     setCurrentOrder((currentOrder = [0, 1, 2]));
     // console.log(missedCharacters);
   };
+
   return (
-    <div className="container">
+    <div className={style.container}>
+      <GameStateButtons gameState={gameState} setGameState={setGameState} />
       <Head>
         <title>NiponABC Game</title>
         <link rel="icon" href="/favicon.png" />
@@ -189,78 +195,99 @@ export default function Game() {
         />
       </Head>
       <NavBar />
-      <GameDescription style={style} />
-      {fullCharacterList[0]?.length > 0 ? (
-        <GameCheckBox
-          setIsRunning={setIsRunning}
-          setLocalCharacterList={setGameList}
-          fullCharacterList={fullCharacterList}
-        />
-      ) : (
-        <dialog open>Loading...</dialog>
-      )}
 
-      <div className={style.game}>
-        <div className={style.correct}>correct: {correct}</div>
-        <div className={style.remaining}>
-          Chars: {localCharacterList.length}
+      <div
+        className={
+          gameState == 0
+            ? `${style.gameContainer} ${style.gameContainerHome} `
+            : gameState == 1
+            ? `${style.gameContainer} ${style.gameContainerMenu} `
+            : `${style.gameContainer} ${style.gameContainerGame} `
+        }
+      >
+        <div className={style.gameDescriptionContainer}>
+          {<GameDescription style={style} />}
         </div>
-        <div className={style.wrong}>Wrong: {wrong}</div>
-        <div className={style.gameCharacterContainer}>
-          <p id="gameCharacter" className={style.gameCharacter}>
-            {isRunning ? currentCharacters[0].jap : "ㅤ"}
-          </p>
+
+        <div
+          className={gameState == 1 ? style.gameMenuContainer : style.hidden}
+        >
+          {fullCharacterList[0]?.length > 0 ? (
+            <GameCheckBox
+              setIsRunning={setIsRunning}
+              setLocalCharacterList={setGameList}
+              fullCharacterList={fullCharacterList}
+            />
+          ) : (
+            <LoadingDialog />
+          )}
         </div>
-        <GameButtons
-          style={style}
-          isRunning={isRunning}
-          currentCharacters={currentCharacters}
-          choiceValidator={choiceValidator}
-          setCorrect={setCorrect}
-          correct={correct}
-          setWrong={setWrong}
-          wrong={wrong}
-          currentOrder={currentOrder}
-        />
+        <div
+          className={gameState != 0 ? style.gameDisplayContainer : style.hidden}
+        >
+          <div className={style.game}>
+            <div className={style.correct}>correct: {correct}</div>
+            <div className={style.remaining}>
+              Chars: {localCharacterList.length}
+            </div>
+            <div className={style.wrong}>Wrong: {wrong}</div>
+            <div className={style.gameCharacterContainer}>
+              <p id="gameCharacter" className={style.gameCharacter}>
+                {isRunning ? currentCharacters[0].jap : "ㅤ"}
+              </p>
+            </div>
+            <GameButtons
+              style={style}
+              isRunning={isRunning}
+              currentCharacters={currentCharacters}
+              choiceValidator={choiceValidator}
+              setCorrect={setCorrect}
+              correct={correct}
+              setWrong={setWrong}
+              wrong={wrong}
+              currentOrder={currentOrder}
+            />
+          </div>
+
+          {(localCharacterList?.length > 0 || wrong > 0 || correct > 0) && (
+            <div className={style.gameButtonsContainer}>
+              <button
+                type="button"
+                id="startGame"
+                className={
+                  isRunning
+                    ? style.gameButton
+                    : `${style.gameButton} ${style.greenSelected}`
+                }
+                onClick={() => {
+                  setIsRunning(true);
+                  setIsGameOver(false);
+                }}
+              >
+                Start Game
+              </button>
+              <button
+                type="button"
+                id="stopGame"
+                className={
+                  !isRunning
+                    ? style.gameButton
+                    : `${style.gameButton} ${style.redSelected}`
+                }
+                onClick={() => setIsRunning(false)}
+              >
+                Stop Game
+              </button>
+            </div>
+          )}
+          {wrong > 0 && (
+            <div className={style.missedContainer}>
+              <h2>You missed</h2>
+              <Table arrayProps={missedCharacters} />
+            </div>
+          )}
+        </div>
       </div>
-
-      {(localCharacterList?.length > 0 || wrong > 0 || correct > 0) && (
-        <div className={style.gameButtonsContainer}>
-          <button
-            type="button"
-            id="startGame"
-            className={
-              isRunning
-                ? style.gameButton
-                : `${style.gameButton} ${style.greenSelected}`
-            }
-            onClick={() => {
-              setIsRunning(true);
-              setIsGameOver(false);
-            }}
-          >
-            Start Game
-          </button>
-          <button
-            type="button"
-            id="stopGame"
-            className={
-              !isRunning
-                ? style.gameButton
-                : `${style.gameButton} ${style.redSelected}`
-            }
-            onClick={() => setIsRunning(false)}
-          >
-            Stop Game
-          </button>
-        </div>
-      )}
-      {wrong > 0 && (
-        <div className={style.missedContainer}>
-          <h2>You missed</h2>
-          <Table arrayProps={missedCharacters} />
-        </div>
-      )}
 
       <style jsx global>{`
         :root {
@@ -279,10 +306,13 @@ export default function Game() {
 
         html,
         body {
+          position: relative;
           padding: 0;
           margin: 0;
           font-size: var(--step--1);
           font-family: "Oshidashi";
+          overflow-y: auto;
+          overflow-x: hidden;
         }
         a {
           text-decoration: none;
@@ -302,21 +332,6 @@ export default function Game() {
         }
         * {
           box-sizing: border-box;
-        }
-        .container {
-          position: relative;
-          top: 0;
-          left: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 100%;
-          font-size: 1.325rem;
-          padding: 2rem;
-          padding-bottom: 10rem;
-          margin-bottom: ;
         }
         h1 {
           padding-top: 10rem;

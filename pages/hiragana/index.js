@@ -6,6 +6,7 @@ import Head from "next/head";
 import Footer from "../footer/footer.js";
 import React, { useContext } from "react";
 import AppContext from "/AppContext";
+import LoadingDialog from "../loading/loadingDialog.js";
 
 export default function Hiragana() {
   const value = useContext(AppContext);
@@ -121,6 +122,6 @@ export default function Hiragana() {
       </div>
     );
   } else {
-    return <dialog open>Loading...</dialog>;
+    return <LoadingDialog />;
   }
 }

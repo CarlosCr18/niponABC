@@ -1,5 +1,5 @@
 .infoContainer {
-  position: fixed;
+  position: absolute;
   background-color: white;
   color: black;
   left: 50%;

@@ -25,51 +25,25 @@
 .title {
   word-break: break-all;
 }
+
+.descriptionTitle {
+  padding-left: 1rem;
+  font-size: var(--step-4);
+}
 .gameDescription {
-  width: min(60ch, 90%) !important;
-  text-align: center;
+  width: min(60ch, 75vw);
+  text-align: start;
+  font-size: var(--step--1);
   padding-bottom: 5rem;
 }
 
-.gameOptionsFullDescription {
-  width: min(60ch, 90%) !important;
-  text-align: start;
-  opacity: 0;
-  height: 0;
-  transform: scale(0);
-  transition: all 0.3s;
-}
-
-.deflate {
-  opacity: 0;
-  height: 0;
-  transform: scale(0);
-}
-
-.inflate {
-  opacity: 1;
-  height: 100%;
-  transform: scale(1);
-}
-
-.learnMoreButton {
-  margin: -0.5rem auto 3rem auto !important;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: none;
-  background: rgb(197, 15, 15) !important;
-  color: white !important;
-  border-radius: 5px;
-  padding: 1rem !important;
-  transition: all 0.5s;
-}
-
 .game {
+  transform: translateX(-0.5rem);
   position: relative;
-  width: min(50rem, 100%);
+  width: min(50rem, 90%);
+  min-height: 20rem;
   display: flex;
   flex-direction: column;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 1fr;
   align-items: space-between;
   justify-content: flex-start;
   text-align: center;
@@ -137,8 +111,8 @@
   align-items: center;
   justify-content: center;
   gap: min(4rem, 5%);
-  height: 100%;
-  margin: 0;
+  height: 7rem;
+  margin: 0 !important;
   padding: 1rem;
   background: rgb(255, 0, 0);
   background: -moz-radial-gradient(
@@ -181,20 +155,21 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  transform: translateX(-0.5rem);
 }
-
 .gameButton {
   border-radius: 10px;
   opacity: 1;
   padding: 1rem;
   width: 40%;
+  height: 12vh;
   justify-self: center;
   font-size: var(--step-0);
   transition: all 0.35s ease;
 }
 
 .missedContainer {
-  display: block;
+  display: grid;
   padding: 0;
   margin: 0;
   padding-block: 2rem;
@@ -209,4 +184,78 @@
 
 .listText li {
   padding: 0.25rem;
+}
+
+.gameContainer {
+  position: relative;
+  font-size: 1.325rem;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 100vw);
+  place-content: center;
+  place-items: center;
+  padding-bottom: 5rem;
+  transition: all 0.35s ease;
+}
+
+.hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.gameContainerHome {
+  transform: translateX(200vw);
+}
+
+.gameContainerMenu {
+  transform: translateX(100vw);
+}
+
+.gameContainerGame {
+  transform: translateX(0vw);
+}
+
+.gameDescriptionContainer {
+  width: 90%;
+  height: auto;
+  order: 0;
+}
+
+.gameMenuContainer {
+  width: 100%;
+  display: grid;
+  position: relative;
+  place-content: center;
+  place-items: center;
+  order: 1;
+}
+
+.gameDisplayContainer {
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5rem;
+  padding-top: 12rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  order: 2;
+}
+
+@media screen and (max-width: 815px) {
+  .descriptionTitle {
+    width: 100%;
+    text-align: center;
+    font-size: var(--step-4);
+  }
+  .gameDescription {
+    width: 100%;
+    text-align: center;
+    font-size: var(--step--1);
+    padding-bottom: 2rem;
+  }
 }

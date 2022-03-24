@@ -17,16 +17,15 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: space-between;
   justify-content: space-between;
+  position: relative;
   padding: 0.25rem;
   overflow: auto;
   font-family: "Oshidashi";
 }
 .characterContainer {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  min-height: 2rem;
   background-color: rgb(255, 255, 255);
   padding: clamp(0.41rem, 0.39rem + 0.1vw, 0.96rem);
   padding-block: min(2vw, 0.5rem);

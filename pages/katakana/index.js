@@ -6,6 +6,7 @@ import Head from "next/head";
 import Footer from "../footer/footer.js";
 import React, { useContext } from "react";
 import AppContext from "/AppContext";
+import LoadingDialog from "../loading/loadingDialog.js";
 
 export default function Katakana() {
   const value = useContext(AppContext);
@@ -13,7 +14,7 @@ export default function Katakana() {
   const katakanaCombinations = value[3];
 
   if (katakana === undefined) {
-    return <dialog open>Loading...</dialog>;
+    return <LoadingDialog />;
   }
 
   return (

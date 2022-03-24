@@ -7,6 +7,26 @@
 
 /*-- Information where buttons for open list are */
 
+.selectionContainer {
+  width: min(1200px, 95%);
+  height: 100%;
+  padding: min(2rem, 2vw);
+  gap: min(2rem, 2vw);
+  padding-top: 10rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gameOptionsFullDescription {
+  padding-inline: min(2rem, 2vw);
+}
+
+.listText li {
+  padding-block: 0.5rem;
+  font-size: var(--step--1);
+}
+
 .languagesUnorginzeslist {
   display: flex;
   flex-direction: column;
@@ -25,6 +45,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
 }
 .gameOptionsTitle {
   width: 60%;
@@ -44,18 +65,21 @@
 }
 
 .selectAllButton {
-  display: flex;
   background: white;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 0.5rem 1rem;
-  align-items: center;
-  justify-content: center;
   transition: all 0.3s ease-in-out;
+}
+.callToActionButton {
+  border: 2px solid rgba(197, 15, 15, 1);
+  color: rgba(197, 15, 15, 1);
 }
 
 .selectAllButton:hover,
-.selectAllButton:focus-visible {
+.selectAllButton:focus-visible,
+.callToActionButton:hover,
+.callToActionButton:focus-visible {
   transform: none !important;
   background: rgb(197, 15, 15);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -74,7 +98,7 @@
 /*- grid and buttos */
 
 .charsList {
-  position: fixed;
+  position: absolute;
   background-color: white;
   width: min(45rem, 90%);
   top: 50vh;
@@ -184,4 +208,15 @@
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border: none;
   padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 915px) {
+  .selectionContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gameOptionsFullDescription {
+    order: 2;
+  }
 }
