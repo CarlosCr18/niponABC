@@ -29,29 +29,51 @@ export default function Hiragana() {
         </Head>
         <NavBar />
         <h1 className={style.title}>
-          <p>Hiragana</p>
-          <p>ひらがな</p>
+          <p className={style.japTitle}>ひらがな</p>
+          <p className={style.latTitle}>Hiragana</p>
         </h1>
-        <p>
+        <p className={style.intro}>
           The characters in the chart below are called Hiragana. Hiragana is the
           main alphabet or character set for Japanese.{" "}
         </p>
         <div className={style.vowelsText}>
           <p>There are 5 vowels in Japanese. </p>
           <ul className={style.vowelsListItem}>
-            <li>{hiragana[0].jap + " " + hiragana[0].lat}</li>
-            <li>{hiragana[1].jap + " " + hiragana[1].lat}</li>
-            <li>{hiragana[2].jap + " " + hiragana[2].lat}</li>
-            <li>{hiragana[3].jap + " " + hiragana[3].lat}</li>
-            <li>{hiragana[4].jap + " " + hiragana[4].lat}</li>
+            <li>
+              <span className={style.redSpan}>{hiragana[0].jap}</span>
+              {"→" + hiragana[0].lat}
+            </li>
+            <li>
+              <span className={style.redSpan}>{hiragana[1].jap}</span>
+              {"→" + hiragana[1].lat}
+            </li>
+            <li>
+              <span className={style.redSpan}>{hiragana[2].jap}</span>
+              {"→" + hiragana[2].lat}
+            </li>
+            <li>
+              <span className={style.redSpan}>{hiragana[3].jap}</span>
+              {"→" + hiragana[3].lat}
+            </li>
+            <li>
+              <span className={style.redSpan}>{hiragana[4].jap}</span>
+              {"→" + hiragana[4].lat}
+            </li>
           </ul>
+          <p>
+            All Hiragana characters end with one of these vowels, with the
+            exception of (
+            <span className={style.redSpan}>
+              {hiragana[hiragana.length - 1].jap}
+            </span>
+            →n).{" "}
+          </p>
         </div>
-        <p>
-          All Hiragana characters end with one of these vowels, with the
-          exception of (n).{" "}
-        </p>
         <h2>Hiragana character set</h2>
-        <p>Tap on any character to get more information.</p>
+
+        <p className={` ${style.tapInfo}`}>
+          Tap on any character to get more information.
+        </p>
         <Table arrayProps={hiragana} />
         <h2>Hiragana combinations</h2>
         <TableComb arrayProps={hiraganaCombinations} />

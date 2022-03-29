@@ -24,35 +24,29 @@ export default function Game() {
   const [isGameOver, setIsGameOver] = useState(true);
   const [missedCharacters, setMissedCharacters] = useState([""]);
   const [gameState, setGameState] = useState(0);
+  const [showCharacter, setShowCharacter] = useState(false);
 
-  console.log(gameState);
   //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
     let gameChar = document.getElementById("gameCharacter");
     if (isRunning) {
       // console.log(timer + "timer");
       const id = setTimeout(() => {
-        gameChar.classList.add(`${style.gameTransition}`);
-        gameChar.style.left =
-          gameChar.parentElement.offsetLeft +
-          gameChar.parentElement.clientWidth +
-          gameChar.clientWidth * 2 +
-          "px";
-
+        if (timer === 0) {
+          setShowCharacter(true);
+        }
         setTimer(timer + 1);
+        // console.log(timer);
       }, 100);
-      if (
-        gameChar.offsetLeft >=
-        gameChar.parentElement.offsetLeft +
-          gameChar.parentElement.clientWidth +
-          gameChar.clientWidth * 2
-      ) {
-        gameChar.classList.remove(`${style.gameTransition}`);
-        gameChar.style.left = "0px";
-        // console.log(timer, "timer Cleared");
+      if (timer > 40) {
+        setShowCharacter(false);
         setWrong(wrong + 1);
         if (localCharacterList.length > 0) {
-          setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
+          setTimeout(() => {
+            setMissedCharacters(
+              missedCharacters.concat([currentCharacters[0]])
+            );
+          }, 500);
         } else {
           document.getElementById("stopGame").click();
         }
@@ -63,10 +57,9 @@ export default function Game() {
         );
         clearTimeout(id);
       }
-    } else {
-      gameChar.classList.remove(`${style.gameTransition}`);
-      gameChar.style.left = "0px";
-      clearTimeout(id);
+    }
+    if (timer >= 20) {
+      setShowCharacter(false);
     }
 
     return () => {
@@ -102,9 +95,7 @@ export default function Game() {
       setMissedCharacters([]);
       setCorrect(0);
       setWrong(0);
-      let gameChar = document.getElementById("gameCharacter");
-      gameChar.classList.remove(`${style.gameTransition}`);
-      gameChar.style.left = "0px";
+      setShowCharacter(false);
       setTimer(0);
     } else {
       setIsGameOver(true);
@@ -127,6 +118,7 @@ export default function Game() {
 
   //Compares the selected value to the current character set and removes it from the set list
   const choiceValidator = (target) => {
+    setShowCharacter(false);
     document.querySelectorAll(`.${style.gameOption}`).forEach((element) => {
       element.disabled = true;
     });
@@ -139,8 +131,8 @@ export default function Game() {
       setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
     }
 
-    // console.log(missedCharacters);
     setTimeout(() => {
+      // console.log(missedCharacters);
       target.classList.remove(style.redSelected);
       target.classList.remove(style.greenSelected);
       setLocalCharacterList(() =>
@@ -148,9 +140,6 @@ export default function Game() {
           return element != currentCharacters[0];
         })
       );
-      let gameChar = document.getElementById("gameCharacter");
-      gameChar.classList.remove(`${style.gameTransition}`);
-      gameChar.style.left = gameChar.clientWidth * -1 + "px";
     }, 600);
   };
 
@@ -205,6 +194,17 @@ export default function Game() {
             : `${style.gameContainer} ${style.gameContainerGame} `
         }
       >
+        <audio
+          src="https://freesound.org/data/previews/625/625694_13092367-lq.mp3"
+          id="bgSound"
+          loop
+        >
+          <source
+            src="https://freesound.org/data/previews/625/625694_13092367-lq.mp3"
+            type="audio/mp3"
+          />
+          Your browser does not support the audio element.
+        </audio>
         <div className={style.gameDescriptionContainer}>
           {<GameDescription style={style} />}
         </div>
@@ -232,7 +232,14 @@ export default function Game() {
             </div>
             <div className={style.wrong}>Wrong: {wrong}</div>
             <div className={style.gameCharacterContainer}>
-              <p id="gameCharacter" className={style.gameCharacter}>
+              <p
+                id="gameCharacter"
+                className={
+                  showCharacter
+                    ? `${style.gameCharacter} ${style.gameTransition}`
+                    : style.gameCharacter
+                }
+              >
                 {isRunning ? currentCharacters[0].jap : "ㅤ"}
               </p>
             </div>
@@ -260,7 +267,12 @@ export default function Game() {
                     : `${style.gameButton} ${style.greenSelected}`
                 }
                 onClick={() => {
-                  setIsRunning(true);
+                  if (localCharacterList?.length > 0) {
+                    setIsRunning(true);
+                    const sound = document.getElementById("bgSound");
+                    sound.currentTime = 0;
+                    sound.play();
+                  }
                   setIsGameOver(false);
                 }}
               >
@@ -274,7 +286,12 @@ export default function Game() {
                     ? style.gameButton
                     : `${style.gameButton} ${style.redSelected}`
                 }
-                onClick={() => setIsRunning(false)}
+                onClick={() => {
+                  setIsRunning(false);
+                  const sound = document.getElementById("bgSound");
+                  sound.currentTime = 0;
+                  sound.pause();
+                }}
               >
                 Stop Game
               </button>

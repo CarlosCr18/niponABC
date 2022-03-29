@@ -4,8 +4,7 @@ export default function GameDescription({ style }) {
       <h1 className={style?.descriptionTitle}>NiponABC</h1>
       <p className={style?.gameDescription}>
         {" "}
-        This site was created so anyone who wants to learn or practice the
-        japanse alphabet can do it in an interactive manner.
+        Learn and practice the japanese alphabet playing.
       </p>
       {/* <h2>Game Options</h2>
       <div

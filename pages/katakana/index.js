@@ -32,16 +32,22 @@ export default function Katakana() {
       </Head>
       <NavBar />
       <h1 className={style.title}>
-        <p>Katakana</p>
-        <p>カタカナ</p>
+        <p className={style.japTitle}>カタカナ</p>
+        <p className={style.latTitle}>Katakana</p>
       </h1>
-      <p>
+      <p className={style.intro}>
         Katakana is mainly used for foreign words such as foreign names and
         words that have been borrowed from other languages
       </p>
       <h2>Katakana character set</h2>
-      <p>Tap on any character to get more information.</p>
-      <Table arrayProps={katakana} />
+      <p className={` ${style.tapInfo}`}>
+        Tap on any character to get more information.
+      </p>
+      {katakana.length > 0 ? (
+        <Table arrayProps={katakana} />
+      ) : (
+        <LoadingDialog />
+      )}
       <h2>katakana combinations</h2>
       <TableComb arrayProps={katakanaCombinations} />
       <style jsx global>{`

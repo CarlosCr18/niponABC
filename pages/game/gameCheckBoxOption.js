@@ -99,34 +99,27 @@ export default function GameCheckBox({
   }, [arrayToReturn]);
   if (fullCharacterList?.length > 0) {
     return (
-      <div className={style.selectionContainer}>
+      <div className={style?.selectionContainer}>
+        <h2 className={style?.title}>Add characters</h2>
         <div
           id="gameOptionsFullDescription"
           className={style?.gameOptionsFullDescription}
         >
           {" "}
-          <h2>Add characters</h2>
           <ul className={style?.listText}>
-            <li>
-              To add a complete alphabet click on the "select all" buttons.
+            <li className={style?.selectAllInfo}>
+              To add a complete alphabet tap on the "select all" button.
             </li>
-            <li>
-              To delete a complete alphabet click on the "clear all" buttons.
+            <li className={style?.clearAllInfo}>
+              To delete a complete alphabet tap on the "clear all" button.
             </li>
-            <li>
-              To choose each specific character click on the "open list"
-              buttons.
+
+            <li className={style?.listAllInfo}>
+              To choose each specific character tap on the "open list" button.
               <ul>
                 <li>Tap on any character you want to select it.</li>
                 <li>Tap again on it to unselect it.</li>
-                <li>
-                  Once you have selected all the characters you need use the
-                  "Add characters" button
-                </li>
-                <li>
-                  If you have selected any characters from an alphabet the
-                  background color will change to green.
-                </li>
+                <li>Once you are ready tap on the "Add characters" button</li>
               </ul>
             </li>
           </ul>
@@ -141,6 +134,7 @@ export default function GameCheckBox({
                   : `${style.gameOptionsList} ${style.greenSelected}`
               }
             >
+              <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Hiragana</p>
               <p className={style.gameOptionsCounter}>
                 {" " +
@@ -189,6 +183,7 @@ export default function GameCheckBox({
                   : `${style.gameOptionsList} ${style.greenSelected}`
               }
             >
+              <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Hiragana combinations</p>
               <p className={style.gameOptionsCounter}>
                 {" " +
@@ -233,6 +228,7 @@ export default function GameCheckBox({
                   : `${style.gameOptionsList} ${style.greenSelected}`
               }
             >
+              <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Katakana</p>
               <p className={style.gameOptionsCounter}>
                 {" " +
@@ -277,6 +273,7 @@ export default function GameCheckBox({
                   : `${style.gameOptionsList} ${style.greenSelected}`
               }
             >
+              <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Katakana combinations</p>
               <p className={style.gameOptionsCounter}>
                 {" " +
@@ -326,17 +323,17 @@ export default function GameCheckBox({
             <div className={style.selectCharsbuttons}>
               <button
                 onClick={() => {
-                  clearAllChars();
-                }}
-              >
-                Clear All
-              </button>
-              <button
-                onClick={() => {
                   selectAllChars();
                 }}
               >
                 Select All
+              </button>
+              <button
+                onClick={() => {
+                  clearAllChars();
+                }}
+              >
+                Clear All
               </button>
               <button
                 className={style.closeButton}
@@ -351,6 +348,15 @@ export default function GameCheckBox({
                   <div
                     className={style.gridItem}
                     key={"gridItem" + e.jap + index}
+                    onClick={({ currentTarget }) => {
+                      if (currentTarget.children[1].checked) {
+                        currentTarget.classList.remove(style.greenSelected);
+                        currentTarget.children[1].checked = false;
+                      } else {
+                        currentTarget.classList.add(style.greenSelected);
+                        currentTarget.children[1].checked = true;
+                      }
+                    }}
                   >
                     <label htmlFor={"checkbox" + e.jap}>
                       {e.jap + " " + e.lat}
@@ -359,15 +365,6 @@ export default function GameCheckBox({
                       id={"checkbox" + e.jap}
                       type="checkbox"
                       className={style.charsToAdd}
-                      onChange={(target) => {
-                        target.target.checked
-                          ? target.target.parentElement.classList.add(
-                              style.greenSelected
-                            )
-                          : target.target.parentElement.classList.remove(
-                              style.greenSelected
-                            );
-                      }}
                     ></input>
                   </div>
                 );
