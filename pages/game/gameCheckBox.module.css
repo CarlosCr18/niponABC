@@ -12,7 +12,7 @@
   width: min(1200px, 95%);
   height: 100%;
   padding: min(2rem, 2vw);
-  margin-top: 10rem;
+  margin-top: 5rem;
   gap: min(2rem, 2vw);
   padding-top: 10rem;
   align-items: center;
@@ -291,6 +291,7 @@
   .selectionContainer {
     display: flex;
     flex-direction: column;
+    margin-top: 10rem;
   }
 
   .gameOptionsFullDescription {
