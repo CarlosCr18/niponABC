@@ -1,5 +1,5 @@
 import style from "./game/game.module.css";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import AppContext from "../AppContext";
 import Table from "./tableComponents/languageTableComponent.js";
 import GameDescription from "./game/gameDescription.js";
@@ -25,6 +25,7 @@ export default function Game() {
   const [missedCharacters, setMissedCharacters] = useState([""]);
   const [gameState, setGameState] = useState(0);
   const [showCharacter, setShowCharacter] = useState(false);
+  const delay = useRef(0);
 
   //useEffect that animates the character then if the character is outside of the parentElement it marks it as wrong choice
   useEffect(() => {
@@ -32,13 +33,18 @@ export default function Game() {
     if (isRunning) {
       // console.log(timer + "timer");
       const id = setTimeout(() => {
-        if (timer === 0) {
-          setShowCharacter(true);
+        if (timer == 0) {
+          delay.current = 0;
+        }
+        if (timer >= 0 && timer <= 5) {
+          if (showCharacter == false) {
+            setShowCharacter(true);
+          }
         }
         setTimer(timer + 1);
-        // console.log(timer);
+        // console.log(timer, delay.current);
       }, 100);
-      if (timer > 40) {
+      if (timer > 40 + delay.current) {
         setShowCharacter(false);
         setWrong(wrong + 1);
         if (localCharacterList.length > 0) {
@@ -97,6 +103,9 @@ export default function Game() {
       setWrong(0);
       setShowCharacter(false);
       setTimer(0);
+      const sound = document.getElementById("bgSound");
+      sound.currentTime = 0;
+      sound.play();
     } else {
       setIsGameOver(true);
       document.querySelectorAll(`.${style.gameOption}`).forEach((element) => {
@@ -119,6 +128,7 @@ export default function Game() {
   //Compares the selected value to the current character set and removes it from the set list
   const choiceValidator = (target) => {
     setShowCharacter(false);
+    delay.current = 30;
     document.querySelectorAll(`.${style.gameOption}`).forEach((element) => {
       element.disabled = true;
     });
@@ -269,9 +279,6 @@ export default function Game() {
                 onClick={() => {
                   if (localCharacterList?.length > 0) {
                     setIsRunning(true);
-                    const sound = document.getElementById("bgSound");
-                    sound.currentTime = 0;
-                    sound.play();
                   }
                   setIsGameOver(false);
                 }}
