@@ -2,15 +2,7 @@ import React from "react";
 import Link from "next/link";
 import style from "./infoComponent.module.css";
 
-export default function InfoComponent({
-  id,
-  title,
-  image,
-  sound,
-  examples,
-  japLetter,
-  characterSet,
-}) {
+export default function InfoComponent({ title, image, sound, examples, japLetter,refID,closeModal }) {
   const playSound = () => {
     const sound = document.getElementById("audio");
     sound.currentTime = 0;
@@ -21,13 +13,12 @@ export default function InfoComponent({
   let examplesArray = examples?.length > 0 ? [...examples] : [examples];
 
   return (
-    <div className={`${style.infoContainer}`} id={id}>
+    <div ref={refID} className={`${style.infoContainer}`}>
       <button
         className={style.btnClose}
-        onClick={({ target }) => {
-          target.parentElement.classList.remove(`${style.scaleUp}`);
-        }}
-      >
+        onClick={() => {
+          closeModal();
+        }}>
         X
       </button>
       <h3 className={style.title}>{title}</h3>
@@ -47,30 +38,20 @@ export default function InfoComponent({
         className={style.btnSound}
         onClick={() => {
           playSound;
-        }}
-      >
+        }}>
         Sound Icon
       </button>
       <audio id="audio" src={sound} />
       <h3>Examples</h3>
       <div className={style.examplesContainer}>
         {examples?.map((e, index) => {
-          let colorChar =
-            index !== 1
-              ? `${style.examples}`
-              : `${style.examples} ${style.exampleColorRed}`;
+          let colorChar = index !== 1 ? `${style.examples}` : `${style.examples} ${style.exampleColorRed}`;
           let regex = new RegExp(japLetter, "g");
-          let returnString = ("" + e.jap).replace(
-            regex,
-            `<span>${japLetter}</span>`
-          );
+          let returnString = ("" + e.jap).replace(regex, `<span>${japLetter}</span>`);
           // console.log(returnString);
           return (
             <div key={"colorChar" + colorChar + index} className={colorChar}>
-              <p
-                className={style.example}
-                dangerouslySetInnerHTML={{ __html: returnString }}
-              ></p>
+              <p className={style.example} dangerouslySetInnerHTML={{ __html: returnString }}></p>
               <p className={style.example}>{e.lat}</p>
               <p className={style.example}>{e.meaning}</p>
             </div>

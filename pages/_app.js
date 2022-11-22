@@ -32,15 +32,13 @@ function MyApp({ Component, pageProps }) {
                 element.infoImg = hiraganaData[elementIndex].infoImg;
                 break;
               case 0:
-                element.infoImg =
-                  hiraganaCombinationsData[elementIndex].infoImg;
+                element.infoImg = hiraganaCombinationsData[elementIndex].infoImg;
                 break;
               case 3:
                 element.infoImg = katakanaData[elementIndex].infoImg;
                 break;
               case 1:
-                element.infoImg =
-                  katakanaCombinationsData[elementIndex].infoImg;
+                element.infoImg = katakanaCombinationsData[elementIndex].infoImg;
                 break;
             }
           });

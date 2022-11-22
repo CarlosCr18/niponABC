@@ -3,11 +3,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local(""),
-    url("/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff2")
-      format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff")
+  src: local(""), url("/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff")
       format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -16,11 +13,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local(""),
-    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2")
-      format("woff2"),
-    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff")
-      format("woff");
+  src: local(""), url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2") format("woff2"),
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff") format("woff");
 }
 .title {
   word-break: break-all;
@@ -148,8 +142,7 @@
   padding: 1rem;
   opacity: 0.7;
   background: transparent;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .gameOption {

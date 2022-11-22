@@ -22,7 +22,7 @@ export default function Game() {
   const [currentOrder, setCurrentOrder] = useState([0, 1, 2]);
   const [timer, setTimer] = useState(-1);
   const [isGameOver, setIsGameOver] = useState(true);
-  const [missedCharacters, setMissedCharacters] = useState([""]);
+  const [missedCharacters, setMissedCharacters] = useState([]);
   const [gameState, setGameState] = useState(0);
   const [showCharacter, setShowCharacter] = useState(false);
   const delay = useRef(0);
@@ -49,9 +49,7 @@ export default function Game() {
         setWrong(wrong + 1);
         if (localCharacterList.length > 0) {
           setTimeout(() => {
-            setMissedCharacters(
-              missedCharacters.concat([currentCharacters[0]])
-            );
+            setMissedCharacters([...missedCharacters,currentCharacters[0]]);
           }, 500);
         } else {
           document.getElementById("stopGame").click();
@@ -138,7 +136,7 @@ export default function Game() {
       target.classList.add(style.redSelected);
     }
     if (target.innerHTML !== currentCharacters[0].lat) {
-      setMissedCharacters(missedCharacters.concat([currentCharacters[0]]));
+      setMissedCharacters([...missedCharacters,currentCharacters[0]]);
     }
 
     setTimeout(() => {
@@ -183,14 +181,14 @@ export default function Game() {
           href="/fonts/rampart/rampart-one-v5-latin_japanese-regular.woff2"
           as="font"
           type="font/woff2"
-          crossorigin=""
+          crossOrigin=""
         />
         <link
           rel="preload"
           href="/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2"
           as="font"
           type="font/woff2"
-          crossorigin=""
+          crossOrigin=""
         />
       </Head>
       <NavBar />
@@ -202,26 +200,14 @@ export default function Game() {
             : gameState == 1
             ? `${style.gameContainer} ${style.gameContainerMenu} `
             : `${style.gameContainer} ${style.gameContainerGame} `
-        }
-      >
-        <audio
-          src="https://freesound.org/data/previews/625/625694_13092367-lq.mp3"
-          id="bgSound"
-          loop
-        >
-          <source
-            src="https://freesound.org/data/previews/625/625694_13092367-lq.mp3"
-            type="audio/mp3"
-          />
+        }>
+        <audio src="https://freesound.org/data/previews/625/625694_13092367-lq.mp3" id="bgSound" loop>
+          <source src="https://freesound.org/data/previews/625/625694_13092367-lq.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
-        <div className={style.gameDescriptionContainer}>
-          {<GameDescription style={style} />}
-        </div>
+        <div className={style.gameDescriptionContainer}>{<GameDescription style={style} />}</div>
 
-        <div
-          className={gameState == 1 ? style.gameMenuContainer : style.hidden}
-        >
+        <div className={gameState == 1 ? style.gameMenuContainer : style.hidden}>
           {fullCharacterList[0]?.length > 0 ? (
             <GameCheckBox
               setIsRunning={setIsRunning}
@@ -232,24 +218,15 @@ export default function Game() {
             <LoadingDialog />
           )}
         </div>
-        <div
-          className={gameState != 0 ? style.gameDisplayContainer : style.hidden}
-        >
+        <div className={gameState != 0 ? style.gameDisplayContainer : style.hidden}>
           <div className={style.game}>
             <div className={style.correct}>correct: {correct}</div>
-            <div className={style.remaining}>
-              Chars: {localCharacterList.length}
-            </div>
+            <div className={style.remaining}>Chars: {localCharacterList.length}</div>
             <div className={style.wrong}>Wrong: {wrong}</div>
             <div className={style.gameCharacterContainer}>
               <p
                 id="gameCharacter"
-                className={
-                  showCharacter
-                    ? `${style.gameCharacter} ${style.gameTransition}`
-                    : style.gameCharacter
-                }
-              >
+                className={showCharacter ? `${style.gameCharacter} ${style.gameTransition}` : style.gameCharacter}>
                 {isRunning ? currentCharacters[0].jap : "ㅤ"}
               </p>
             </div>
@@ -271,35 +248,25 @@ export default function Game() {
               <button
                 type="button"
                 id="startGame"
-                className={
-                  isRunning
-                    ? style.gameButton
-                    : `${style.gameButton} ${style.greenSelected}`
-                }
+                className={isRunning ? style.gameButton : `${style.gameButton} ${style.greenSelected}`}
                 onClick={() => {
                   if (localCharacterList?.length > 0) {
                     setIsRunning(true);
                   }
                   setIsGameOver(false);
-                }}
-              >
+                }}>
                 Start Game
               </button>
               <button
                 type="button"
                 id="stopGame"
-                className={
-                  !isRunning
-                    ? style.gameButton
-                    : `${style.gameButton} ${style.redSelected}`
-                }
+                className={!isRunning ? style.gameButton : `${style.gameButton} ${style.redSelected}`}
                 onClick={() => {
                   setIsRunning(false);
                   const sound = document.getElementById("bgSound");
                   sound.currentTime = 0;
                   sound.pause();
-                }}
-              >
+                }}>
                 Stop Game
               </button>
             </div>

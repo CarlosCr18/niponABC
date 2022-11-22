@@ -1,13 +1,36 @@
+  .container {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.325rem;
+  padding: 1rem;
+  padding-bottom: 10rem;
+  gap: 1rem;
+}
+
+.container p {
+  width: min(40ch, 90%);
+  word-break: break-word;
+  text-align: center;
+}
+.container h1 p {
+  width: 100%;
+}
+
+
 @font-face {
   font-family: "Oshidashi";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local(""),
-    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2")
-      format("woff2"),
-    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff")
-      format("woff");
+  src: local(""), url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2") format("woff2"),
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff") format("woff");
 }
 
 .title {

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./gameCheckBox.module.css";
-export default function GameCheckBox({
-  setIsRunning,
-  setLocalCharacterList,
-  fullCharacterList,
-}) {
+export default function GameCheckBox({ setIsRunning, setLocalCharacterList, fullCharacterList }) {
   const [arrayToReturn, setArrayToReturn] = useState([[], [], [], []]);
   const [tempArray, setTempArray] = useState([, , ,]);
   const [currentChars, setCurrentChars] = useState(0);
@@ -71,8 +67,7 @@ export default function GameCheckBox({
   const clearAllChars = () => {
     let checkboxes = document.querySelectorAll(`.${style.charsToAdd}`);
     checkboxes.forEach((checkbox) => {
-      (checkbox.checked = false),
-        checkbox.parentElement.classList.remove(style.greenSelected);
+      (checkbox.checked = false), checkbox.parentElement.classList.remove(style.greenSelected);
     });
   };
 
@@ -101,18 +96,11 @@ export default function GameCheckBox({
     return (
       <div className={style?.selectionContainer}>
         <h2 className={style?.title}>Add characters</h2>
-        <div
-          id="gameOptionsFullDescription"
-          className={style?.gameOptionsFullDescription}
-        >
+        <div id="gameOptionsFullDescription" className={style?.gameOptionsFullDescription}>
           {" "}
           <ul className={style?.listText}>
-            <li className={style?.selectAllInfo}>
-              To add a complete alphabet tap on the "select all" button.
-            </li>
-            <li className={style?.clearAllInfo}>
-              To delete a complete alphabet tap on the "clear all" button.
-            </li>
+            <li className={style?.selectAllInfo}>To add a complete alphabet tap on the "select all" button.</li>
+            <li className={style?.clearAllInfo}>To delete a complete alphabet tap on the "clear all" button.</li>
 
             <li className={style?.listAllInfo}>
               To choose each specific character tap on the "open list" button.
@@ -129,19 +117,12 @@ export default function GameCheckBox({
           <ul className={style.languagesUnorginzeslist}>
             <li
               className={
-                arrayToReturn[0].length == 0
-                  ? style.gameOptionsList
-                  : `${style.gameOptionsList} ${style.greenSelected}`
-              }
-            >
+                arrayToReturn[0].length == 0 ? style.gameOptionsList : `${style.gameOptionsList} ${style.greenSelected}`
+              }>
               <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Hiragana</p>
               <p className={style.gameOptionsCounter}>
-                {" " +
-                  arrayToReturn[0].length +
-                  "/" +
-                  fullCharacterList[0].length +
-                  " "}
+                {" " + arrayToReturn[0].length + "/" + fullCharacterList[0].length + " "}
               </p>
               <div className={style.selectButtons}>
                 <button
@@ -150,8 +131,7 @@ export default function GameCheckBox({
                   onClick={() => {
                     addAllChars(0);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Select All
                 </button>
                 <button
@@ -159,8 +139,7 @@ export default function GameCheckBox({
                   onClick={() => {
                     clearAllCharsButton(0);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Clear All
                 </button>
                 <button
@@ -170,27 +149,19 @@ export default function GameCheckBox({
                     setTimeout(() => {
                       changeTempArray(0);
                     }, 400);
-                  }}
-                >
+                  }}>
                   Open list
                 </button>
               </div>
             </li>
             <li
               className={
-                arrayToReturn[1].length == 0
-                  ? style.gameOptionsList
-                  : `${style.gameOptionsList} ${style.greenSelected}`
-              }
-            >
+                arrayToReturn[1].length == 0 ? style.gameOptionsList : `${style.gameOptionsList} ${style.greenSelected}`
+              }>
               <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Hiragana combinations</p>
               <p className={style.gameOptionsCounter}>
-                {" " +
-                  arrayToReturn[1].length +
-                  "/" +
-                  fullCharacterList[1].length +
-                  " "}
+                {" " + arrayToReturn[1].length + "/" + fullCharacterList[1].length + " "}
               </p>
               <div className={style.selectButtons}>
                 <button
@@ -198,8 +169,7 @@ export default function GameCheckBox({
                   onClick={() => {
                     addAllChars(1);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Select All
                 </button>
                 <button
@@ -207,35 +177,26 @@ export default function GameCheckBox({
                   onClick={() => {
                     clearAllCharsButton(1);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Clear All
                 </button>
                 <button
                   className={style.selectAllButton}
                   onClick={(target) => {
                     changeTempArray(1);
-                  }}
-                >
+                  }}>
                   Open list
                 </button>
               </div>
             </li>
             <li
               className={
-                arrayToReturn[2].length == 0
-                  ? style.gameOptionsList
-                  : `${style.gameOptionsList} ${style.greenSelected}`
-              }
-            >
+                arrayToReturn[2].length == 0 ? style.gameOptionsList : `${style.gameOptionsList} ${style.greenSelected}`
+              }>
               <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Katakana</p>
               <p className={style.gameOptionsCounter}>
-                {" " +
-                  arrayToReturn[2].length +
-                  "/" +
-                  fullCharacterList[2].length +
-                  " "}
+                {" " + arrayToReturn[2].length + "/" + fullCharacterList[2].length + " "}
               </p>
               <div className={style.selectButtons}>
                 <button
@@ -243,8 +204,7 @@ export default function GameCheckBox({
                   onClick={() => {
                     addAllChars(2);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Select All
                 </button>
                 <button
@@ -252,35 +212,26 @@ export default function GameCheckBox({
                   onClick={() => {
                     clearAllCharsButton(2);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Clear All
                 </button>
                 <button
                   className={style.selectAllButton}
                   onClick={(target) => {
                     changeTempArray(2);
-                  }}
-                >
+                  }}>
                   Open list
                 </button>
               </div>
             </li>
             <li
               className={
-                arrayToReturn[3].length == 0
-                  ? style.gameOptionsList
-                  : `${style.gameOptionsList} ${style.greenSelected}`
-              }
-            >
+                arrayToReturn[3].length == 0 ? style.gameOptionsList : `${style.gameOptionsList} ${style.greenSelected}`
+              }>
               <p className={style.leftBar}> </p>
               <p className={style.gameOptionsTitle}>Katakana combinations</p>
               <p className={style.gameOptionsCounter}>
-                {" " +
-                  arrayToReturn[3].length +
-                  "/" +
-                  fullCharacterList[3].length +
-                  " "}
+                {" " + arrayToReturn[3].length + "/" + fullCharacterList[3].length + " "}
               </p>
               <div className={style.selectButtons}>
                 <button
@@ -288,8 +239,7 @@ export default function GameCheckBox({
                   onClick={() => {
                     addAllChars(3);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Select All
                 </button>
                 <button
@@ -297,16 +247,14 @@ export default function GameCheckBox({
                   onClick={() => {
                     clearAllCharsButton(3);
                     closeElement();
-                  }}
-                >
+                  }}>
                   Clear All
                 </button>
                 <button
                   className={style.selectAllButton}
                   onClick={(target) => {
                     changeTempArray(3);
-                  }}
-                >
+                  }}>
                   Open list
                 </button>
               </div>
@@ -324,21 +272,16 @@ export default function GameCheckBox({
               <button
                 onClick={() => {
                   selectAllChars();
-                }}
-              >
+                }}>
                 Select All
               </button>
               <button
                 onClick={() => {
                   clearAllChars();
-                }}
-              >
+                }}>
                 Clear All
               </button>
-              <button
-                className={style.closeButton}
-                onClick={() => closeElement()}
-              >
+              <button className={style.closeButton} onClick={() => closeElement()}>
                 X
               </button>
             </div>
@@ -356,16 +299,9 @@ export default function GameCheckBox({
                         currentTarget.classList.add(style.greenSelected);
                         currentTarget.children[1].checked = true;
                       }
-                    }}
-                  >
-                    <label htmlFor={"checkbox" + e.jap}>
-                      {e.jap + " " + e.lat}
-                    </label>
-                    <input
-                      id={"checkbox" + e.jap}
-                      type="checkbox"
-                      className={style.charsToAdd}
-                    ></input>
+                    }}>
+                    <label htmlFor={"checkbox" + e.jap}>{e.jap + " " + e.lat}</label>
+                    <input id={"checkbox" + e.jap} type="checkbox" className={style.charsToAdd}></input>
                   </div>
                 );
               })}
@@ -374,8 +310,7 @@ export default function GameCheckBox({
               className={style.addCharsButton}
               onClick={() => {
                 addCharacters();
-              }}
-            >
+              }}>
               Add characters
             </button>
           </div>

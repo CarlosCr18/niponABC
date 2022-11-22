@@ -3,11 +3,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local(""),
-    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2")
-      format("woff2"),
-    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff")
-      format("woff");
+  src: local(""), url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2") format("woff2"),
+    url("/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff") format("woff");
 }
 
 .charactersGrid {
@@ -19,6 +16,8 @@
   overflow: auto;
   font-family: "Oshidashi";
   margin: 0 !important;
+  padding: 0.5rem;
+  border-radius: 5%;
 }
 .scaleUpT {
   transform: translateY(-50%) translateX(-50%) scale(1);
@@ -31,19 +30,21 @@
   line-height: 1.325rem;
   background-color: rgb(255, 255, 255);
   padding: clamp(0.41rem, 0.39rem + 0.1vw, 0.96rem);
-  outline: 1px solid rgb(49, 49, 49);
   border: none !important;
   color: black;
+  opacity: 0.95;
   cursor: pointer;
 }
 .characterContainer:hover,
 .characterContainer:focus-visible {
   transform: none;
-  opacity: 0.7;
+  opacity: 1;
+  z-index: 2;
+  font-weight: 900;
 }
 
 .backgroundGrey {
-  background-color: rgb(233, 233, 233);
+  background-color: rgba(38, 38, 38, 0.12)
 }
 
 .letterJap {
@@ -67,4 +68,13 @@
   .charactersGrid {
     position: inherit;
   }
+}
+
+.showModal{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 1;
+  z-index: 3;
 }

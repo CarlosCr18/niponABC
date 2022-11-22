@@ -1,5 +1,5 @@
 import style from "./languageTable.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import InfoComponent from "../infoComponent/infoComponent.js";
 
 export default function LanguageTableComponent({ arrayProps }) {
@@ -8,8 +8,21 @@ export default function LanguageTableComponent({ arrayProps }) {
   const [infoExamples, setInfoExamples] = useState(["", "", ""]);
   const [japLetter, setJapLetter] = useState([""]);
   const [latLetter, setLatLetter] = useState("");
+  const [filteredArray, setFilteredArray] = useState([...arrayProps]);
+  const infoComponent = useRef();
+  const spaces = [61, 63, 71, 72, 73, 76, 77, 78, 79];
 
-  const infoComponentId = "infoComponent";
+  useEffect(() => {
+    if(arrayProps.length===71){
+    let tempArray = [...filteredArray];
+    spaces.forEach((e) => {
+      tempArray.splice(e, 0, "");
+    });
+    setFilteredArray(tempArray);
+  }else{
+    setFilteredArray(arrayProps)
+  }
+ }, [arrayProps]);
 
   const showInfo = (letter) => {
     if (letter.lat == "") return;
@@ -19,42 +32,50 @@ export default function LanguageTableComponent({ arrayProps }) {
     setInfoExamples(letter.examples);
     setJapLetter(letter.jap);
     setLatLetter(letter.lat);
-    document
-      .getElementById("infoComponent")
-      .classList.add("infoComponent_scaleUp__ilu5D");
+    infoComponent.current.classList.add(`${style.showModal}`);
+    console.log(infoComponent.current)
   };
 
-  if (arrayProps?.length > 0) {
+  const closeModal = (letter) => {
+    infoComponent.current.classList.remove(`${style.showModal}`);
+  };
+  if (filteredArray?.length > 0) {
     return (
       <div className={style.charactersGrid}>
-        {arrayProps?.map((letter, index) => {
-          return (
-            <button
-              key={"letter" + letter.jap + letter.lat + index}
-              onClick={() => showInfo(letter)}
-              className={
-                index % 10 >= 5
-                  ? `${style.characterContainer}`
-                  : `${style.characterContainer} ${style.backgroundGrey}`
-              }
-            >
+        {filteredArray?.map((letter, index) => {
+          if (letter) {
+            return (
+              <button
+                key={"letter" + letter.jap + letter.lat + index}
+                onClick={() => showInfo(letter)}
+                className={
+                  index % 10 >= 5
+                    ? `${style.characterContainer}`
+                    : `${style.characterContainer} ${style.backgroundGrey}`
+                }>
+                <div key={"letterjap" + letter.jap + index} className={style.letterJap}>
+                  {letter.jap}
+                </div>
+                <div key={"letterLat" + letter.lat + index} className={style.letterLat}>
+                  {letter.lat}
+                </div>
+              </button>
+            );
+          } else {
+            return (
               <div
-                key={"letterjap" + letter.jap + index}
-                className={style.letterJap}
-              >
-                {letter.jap}
-              </div>
-              <div
-                key={"letterLat" + letter.lat + index}
-                className={style.letterLat}
-              >
-                {letter.lat}
-              </div>
-            </button>
-          );
+                key={"empty_" + index}
+                className={
+                  index % 10 >= 5
+                    ? `${style.characterContainer}`
+                    : `${style.characterContainer} ${style.backgroundGrey}`
+                }></div>
+            );
+          }
         })}
         <InfoComponent
-          id={infoComponentId}
+          closeModal={closeModal}
+          refID={infoComponent}
           title={infoTitle}
           image={infoImg}
           sound="sound"

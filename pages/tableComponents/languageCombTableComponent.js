@@ -1,5 +1,5 @@
 import style from "./languageCombTable.module.css";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import InfoComponent from "../infoComponent/infoComponent.js";
 
 export default function LanguageTableComb({ arrayProps }) {
@@ -8,7 +8,7 @@ export default function LanguageTableComb({ arrayProps }) {
   const [infoExamples, setInfoExamples] = useState(["", "", ""]);
   const [japLetter, setJapLetter] = useState("");
   const [latLetter, setLatLetter] = useState("");
-  const infoComponentId = "infoComponentComb";
+  const infoComponentComb = useRef();
 
   const showInfo = (letter) => {
     if (letter.lat == " ") return;
@@ -20,10 +20,11 @@ export default function LanguageTableComb({ arrayProps }) {
     setJapLetter(letter.jap);
     setLatLetter(letter.lat);
 
-    document
-      .getElementById("infoComponentComb")
-      .classList.add("infoComponent_scaleUp__ilu5D");
+    infoComponentComb.current.classList.add(`${style.showModal}`);
   };
+  const closeModal = () =>{
+    infoComponentComb.current.classList.remove(`${style.showModal}`);
+  }
 
   if (arrayProps?.length > 0) {
     return (
@@ -34,28 +35,20 @@ export default function LanguageTableComb({ arrayProps }) {
               key={"letterComb" + letter.jap + letter.lat}
               onClick={() => showInfo(letter)}
               className={
-                index % 6 >= 3
-                  ? `${style.characterContainer}`
-                  : `${style.characterContainer} ${style.backgroundBlue}`
-              }
-            >
-              <div
-                key={"letterjapComb" + letter.jap}
-                className={style.letterJap}
-              >
+                index % 6 >= 3 ? `${style.characterContainer}` : `${style.characterContainer} ${style.backgroundBlue}`
+              }>
+              <div key={"letterjapComb" + letter.jap} className={style.letterJap}>
                 {letter.jap}
               </div>
-              <div
-                key={"letterLatComb" + letter.lat}
-                className={style.letterLat}
-              >
+              <div key={"letterLatComb" + letter.lat} className={style.letterLat}>
                 {letter.lat}
               </div>
             </button>
           );
         })}
         <InfoComponent
-          id={infoComponentId}
+          closeModal={closeModal}
+          refID={infoComponentComb}
           title={infoTitle}
           image={infoImg}
           sound="sound"

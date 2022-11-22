@@ -6,7 +6,8 @@
   top: 50%;
   width: min(40rem, 90%);
   transform: translateY(-50%) translateX(-50%) scale(0);
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 1.2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -44,8 +45,8 @@
 
 .btnClose:hover,
 .btnClose:focus-visible {
-  transform: translatex(50%) translateY(-50%) scale(1.1);
-  background: rgb(197, 15, 15);
+  transform: translatex(50%) translateY(-50%);
+  background-color: rgb(197, 15, 15);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   color: white;
 }

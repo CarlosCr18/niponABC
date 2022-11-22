@@ -27,7 +27,7 @@ export default function Katakana() {
           href="/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2"
           as="font"
           type="font/woff2"
-          crossorigin=""
+          crossOrigin=""
         />
       </Head>
       <NavBar />
@@ -36,18 +36,12 @@ export default function Katakana() {
         <p className={style.latTitle}>Katakana</p>
       </h1>
       <p className={style.intro}>
-        Katakana is mainly used for foreign words such as foreign names and
-        words that have been borrowed from other languages
+        Katakana is mainly used for foreign words such as foreign names and words that have been borrowed from other
+        languages
       </p>
       <h2>Katakana character set</h2>
-      <p className={` ${style.tapInfo}`}>
-        Tap on any character to get more information.
-      </p>
-      {katakana.length > 0 ? (
-        <Table arrayProps={katakana} />
-      ) : (
-        <LoadingDialog />
-      )}
+      <p className={` ${style.tapInfo}`}>Tap on any character to get more information.</p>
+      {katakana.length > 0 ? <Table arrayProps={katakana} /> : <LoadingDialog />}
       <h2>katakana combinations</h2>
       <TableComb arrayProps={katakanaCombinations} />
       <style jsx global>{`
@@ -94,7 +88,10 @@ export default function Katakana() {
         }
 
         h1 {
-          padding-top: 7rem;
+          width:fit-content;
+          white-space:nowrap;
+          padding-inline:0;
+          margin-inline:0;
           margin-bottom: -2rem;
         }
 

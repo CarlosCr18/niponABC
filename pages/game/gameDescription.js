@@ -2,10 +2,7 @@ export default function GameDescription({ style }) {
   return (
     <>
       <h1 className={style?.descriptionTitle}>NiponABC</h1>
-      <p className={style?.gameDescription}>
-        {" "}
-        Learn and practice the japanese alphabet playing.
-      </p>
+      <p className={style?.gameDescription}> Learn and practice the japanese alphabet playing.</p>
       {/* <h2>Game Options</h2>
       <div
         id="gameOptionsShortDescription"

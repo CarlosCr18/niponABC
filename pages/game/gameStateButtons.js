@@ -10,8 +10,7 @@ export default function GameStateButtons({ gameState, setGameState }) {
       {gameState > 0 && (
         <button
           className={`${style?.button} ${style?.button_appearance}  ${style?.decreaseButton}`}
-          onClick={() => changeGameState(-1)}
-        >
+          onClick={() => changeGameState(-1)}>
           ˂
         </button>
       )}
@@ -22,8 +21,7 @@ export default function GameStateButtons({ gameState, setGameState }) {
               ? `${style?.button} ${style?.button_appearance}  ${style?.increaseButton} ${style?.animatedButton}`
               : `${style?.button} ${style?.button_appearance}  ${style?.increaseButton}`
           }
-          onClick={() => changeGameState(1)}
-        >
+          onClick={() => changeGameState(1)}>
           ˃
         </button>
       )}

@@ -22,16 +22,11 @@ export default function GameButtons({
             setCorrect(validate ? correct + 1 : correct);
             setWrong(validate ? wrong : wrong + 1);
           }
-        }}
-      >
+        }}>
         {isRunning ? currentCharacters[currentOrder[i]].lat : "ㅤ"}
       </button>
     );
   }
 
-  return (
-    <div className={style?.gameOptionsContainer}>
-      {buttonsArray?.map((e) => e)}
-    </div>
-  );
+  return <div className={style?.gameOptionsContainer}>{buttonsArray?.map((e) => e)}</div>;
 }

@@ -5,7 +5,9 @@ export default function NavBar() {
   const user = false;
   return (
     <nav className={styles.nav}>
+      <Link href="/">
       <img className={styles.logo} src="/images/logo.jpg" alt="logo" />
+          </Link>
       <div className={styles.linksContainer}>
         <div className={styles.link}>
           <Link href="/">

@@ -24,7 +24,7 @@ export default function Hiragana() {
             href="/fonts/swarabi/sawarabi-mincho-v15-latin_japanese-regular.woff2"
             as="font"
             type="font/woff2"
-            crossorigin=""
+            crossOrigin=""
           />
         </Head>
         <NavBar />
@@ -33,8 +33,8 @@ export default function Hiragana() {
           <p className={style.latTitle}>Hiragana</p>
         </h1>
         <p className={style.intro}>
-          The characters in the chart below are called Hiragana. Hiragana is the
-          main alphabet or character set for Japanese.{" "}
+          The characters in the chart below are called Hiragana. Hiragana is the main alphabet or character set for
+          Japanese.{" "}
         </p>
         <div className={style.vowelsText}>
           <p>There are 5 vowels in Japanese. </p>
@@ -61,19 +61,14 @@ export default function Hiragana() {
             </li>
           </ul>
           <p>
-            All Hiragana characters end with one of these vowels, with the
-            exception of (
-            <span className={style.redSpan}>
-              {hiragana[hiragana.length - 1].jap}
-            </span>
+            All Hiragana characters end with one of these vowels, with the exception of (
+            <span className={style.redSpan}>{hiragana[hiragana.length - 1].jap}</span>
             →n).{" "}
           </p>
         </div>
         <h2>Hiragana character set</h2>
 
-        <p className={` ${style.tapInfo}`}>
-          Tap on any character to get more information.
-        </p>
+        <p className={` ${style.tapInfo}`}>Tap on any character to get more information.</p>
         <Table arrayProps={hiragana} />
         <h2>Hiragana combinations</h2>
         <TableComb arrayProps={hiraganaCombinations} />
@@ -92,9 +87,8 @@ export default function Hiragana() {
           body {
             padding: 0;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+              Droid Sans, Helvetica Neue, sans-serif;
             font-size: var(--step--1);
             font-family: Oshidashi;
           }
@@ -108,7 +102,10 @@ export default function Hiragana() {
             box-sizing: border-box;
           }
           h1 {
-            padding-top: 7rem;
+            width:fit-content;
+            white-space:nowrap;
+            padding-inline:0;
+            margin-inline:0;
             margin-bottom: -2rem;
           }
 
