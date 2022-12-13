@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [value, setValue] = useState(["", "", "", ""]);
 
   useEffect(() => {
-    fetch("https://japanese-alphabet-api.herokuapp.com/api/all", {
+    fetch("https://japanese-alphabet-api.onrender.com/api/all", {
       method: "GET",
     })
       .then((response) => response.json())

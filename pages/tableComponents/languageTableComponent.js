@@ -8,7 +8,7 @@ export default function LanguageTableComponent({ arrayProps }) {
   const [infoExamples, setInfoExamples] = useState(["", "", ""]);
   const [japLetter, setJapLetter] = useState([""]);
   const [latLetter, setLatLetter] = useState("");
-  const [filteredArray, setFilteredArray] = useState([...arrayProps]);
+  const [filteredArray, setFilteredArray] = useState(arrayProps ? [...arrayProps] : []);
   const infoComponent = useRef();
   const spaces = [61, 63, 71, 72, 73, 76, 77, 78, 79];
 
